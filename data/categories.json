@@ -1,0 +1,105 @@
+[
+  {
+    "id": "surgical-instruments",
+    "slug": "surgical-instruments",
+    "icon": "🔧",
+    "nameKey": "cat_surgical",
+    "subcategories": [
+      { "id": "clamps", "slug": "clamps", "nameKey": "sub_clamps" },
+      { "id": "scissors", "slug": "scissors", "nameKey": "sub_scissors" },
+      { "id": "forceps", "slug": "forceps", "nameKey": "sub_forceps" },
+      { "id": "retractors", "slug": "retractors", "nameKey": "sub_retractors" },
+      { "id": "scalpels", "slug": "scalpels", "nameKey": "sub_scalpels" },
+      { "id": "needle-holders", "slug": "needle-holders", "nameKey": "sub_needle_holders" }
+    ]
+  },
+  {
+    "id": "endoscopy",
+    "slug": "endoscopy",
+    "icon": "🔬",
+    "nameKey": "cat_endoscopy",
+    "subcategories": [
+      { "id": "endoscopes", "slug": "endoscopes", "nameKey": "sub_endoscopes" },
+      { "id": "laparoscopy", "slug": "laparoscopy", "nameKey": "sub_laparoscopy" },
+      { "id": "endo-accessories", "slug": "endo-accessories", "nameKey": "sub_endo_accessories" }
+    ]
+  },
+  {
+    "id": "anesthesia",
+    "slug": "anesthesia",
+    "icon": "💨",
+    "nameKey": "cat_anesthesia",
+    "subcategories": [
+      { "id": "ventilators", "slug": "ventilators", "nameKey": "sub_ventilators" },
+      { "id": "anesthesia-machines", "slug": "anesthesia-machines", "nameKey": "sub_anesthesia_machines" },
+      { "id": "breathing-circuits", "slug": "breathing-circuits", "nameKey": "sub_breathing_circuits" }
+    ]
+  },
+  {
+    "id": "diagnostics",
+    "slug": "diagnostics",
+    "icon": "🩻",
+    "nameKey": "cat_diagnostics",
+    "subcategories": [
+      { "id": "ultrasound", "slug": "ultrasound", "nameKey": "sub_ultrasound" },
+      { "id": "xray", "slug": "xray", "nameKey": "sub_xray" },
+      { "id": "mri", "slug": "mri", "nameKey": "sub_mri" },
+      { "id": "ct", "slug": "ct", "nameKey": "sub_ct" }
+    ]
+  },
+  {
+    "id": "monitoring",
+    "slug": "monitoring",
+    "icon": "📡",
+    "nameKey": "cat_monitoring",
+    "subcategories": [
+      { "id": "patient-monitors", "slug": "patient-monitors", "nameKey": "sub_patient_monitors" },
+      { "id": "ecg", "slug": "ecg", "nameKey": "sub_ecg" },
+      { "id": "pulse-oximetry", "slug": "pulse-oximetry", "nameKey": "sub_pulse_oximetry" }
+    ]
+  },
+  {
+    "id": "orthopedics",
+    "slug": "orthopedics",
+    "icon": "🦴",
+    "nameKey": "cat_orthopedics",
+    "subcategories": [
+      { "id": "implants", "slug": "implants", "nameKey": "sub_implants" },
+      { "id": "fixation", "slug": "fixation", "nameKey": "sub_fixation" },
+      { "id": "prosthetics", "slug": "prosthetics", "nameKey": "sub_prosthetics" }
+    ]
+  },
+  {
+    "id": "consumables",
+    "slug": "consumables",
+    "icon": "📦",
+    "nameKey": "cat_consumables",
+    "subcategories": [
+      { "id": "sutures", "slug": "sutures", "nameKey": "sub_sutures" },
+      { "id": "gloves", "slug": "gloves", "nameKey": "sub_gloves" },
+      { "id": "dressings", "slug": "dressings", "nameKey": "sub_dressings" },
+      { "id": "syringes", "slug": "syringes", "nameKey": "sub_syringes" }
+    ]
+  },
+  {
+    "id": "sterilization",
+    "slug": "sterilization",
+    "icon": "♻️",
+    "nameKey": "cat_sterilization",
+    "subcategories": [
+      { "id": "autoclaves", "slug": "autoclaves", "nameKey": "sub_autoclaves" },
+      { "id": "disinfection", "slug": "disinfection", "nameKey": "sub_disinfection" }
+    ]
+  },
+  {
+    "id": "laboratory",
+    "slug": "laboratory",
+    "icon": "🧪",
+    "nameKey": "cat_laboratory",
+    "subcategories": [
+      { "id": "analyzers", "slug": "analyzers", "nameKey": "sub_analyzers" },
+      { "id": "microscopes", "slug": "microscopes", "nameKey": "sub_microscopes" },
+      { "id": "lab-accessories", "slug": "lab-accessories", "nameKey": "sub_lab_accessories" }
+    ]
+  }
+]

@@ -1,269 +1,326 @@
 <!DOCTYPE html>
-<html lang="ru" data-lang="ru">
+<html lang="ru">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>MedHub — медицинский маркетплейс хирургических инструментов Aesculap</title>
-  <meta name="description" content="MedHub — B2B маркетплейс инструментов Aesculap для клиник. Быстрый поиск по SKU, заказ оптом и заявка на КП." />
-  <link rel="canonical" href="https://medhub.ru/" />
-  <meta property="og:title" content="MedHub — медмаркетплейс Aesculap" />
-  <meta property="og:description" content="B2B маркетплейс хирургических инструментов Aesculap. Быстрый поиск, корзина заявка, сравнение товаров." />
-  <meta property="og:type" content="website" />
-  <meta property="og:image" content="https://medhub.ru/og-image.jpg" />
-  <meta property="og:url" content="https://medhub.ru/" />
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Golos+Text:wght@300;400;500;600&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="/assets/styles.css">
+  <title>MedHub — B2B маркетплейс медицинского оборудования</title>
+  <meta name="description" content="MedHub — профессиональная B2B площадка для закупки медицинского оборудования. Хирургические инструменты, аппараты ИВЛ, диагностика от ведущих мировых брендов: Aesculap, Karl Storz, Philips, Dräger, Stryker.">
+  <meta name="keywords" content="медицинское оборудование, хирургические инструменты, Aesculap, Karl Storz, Philips, Dräger, Stryker, B2B, оптовые поставки, медтехника">
+  <meta property="og:title" content="MedHub — B2B маркетплейс медицинского оборудования">
+  <meta property="og:description" content="Профессиональные поставки медицинского оборудования для клиник и больниц. Официальные дистрибьюторы ведущих мировых брендов.">
+  <meta property="og:type" content="website">
+  <link rel="canonical" href="https://medhub.ru/">
+  <link rel="stylesheet" href="assets/css/main.css">
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Organization",
+    "name": "MedHub",
+    "description": "B2B маркетплейс медицинского оборудования",
+    "url": "https://medhub.ru",
+    "telephone": "+74951234567",
+    "address": {
+      "@type": "PostalAddress",
+      "streetAddress": "ул. Профсоюзная, 57, офис 401",
+      "addressLocality": "Москва",
+      "addressCountry": "RU"
+    }
+  }
+  </script>
 </head>
 <body>
-  <header class="site-header">
-    <div class="page-shell site-nav">
-      <div class="site-logo">
-        <a href="/" class="site-logo__title">MedHub</a>
-        <span class="site-logo__tag">B2B маркетплейс</span>
-      </div>
-      <form class="search-bar" data-search-form>
-        <span class="search-icon">🔍</span>
-        <input type="search" data-search-input aria-label="Поиск товаров" autocomplete="off" />
-        <div class="search-suggestions hidden" role="listbox"></div>
-      </form>
-      <div class="site-actions">
-        <div class="lang-switcher">
-          <button type="button" class="active" data-lang-toggle data-lang="ru">RU</button>
-          <button type="button" data-lang-toggle data-lang="en">EN</button>
-          <button type="button" data-lang-toggle data-lang="zh">ZH</button>
-        </div>
-        <button type="button" class="header-btn outline cart-button" data-cart-toggle>
-          🛒 Корзина <span class="badge" id="cart-count">0</span>
-        </button>
-        <a class="header-btn primary" href="/admin/login.html">Войти</a>
-      </div>
+
+<!-- Promo banner -->
+<div class="promo-banner" id="promo-banner" style="display:none;" data-i18n-key="promo_text"></div>
+
+<!-- HEADER -->
+<header class="header">
+  <div class="header__inner">
+    <a href="index.html" class="header__logo" aria-label="MedHub">
+      <div class="header__logo-icon">⚕</div>
+      MedHub
+    </a>
+    <div class="header__search">
+      <svg class="header__search-icon" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg>
+      <input class="header__search-input" type="search" data-i18n-placeholder="search_placeholder" placeholder="Поиск оборудования, бренда, артикула..." aria-label="Search">
     </div>
-    <nav class="category-tabs"></nav>
-  </header>
-
-  <main class="page-shell">
-    <section class="hero-card" id="hero-banner">
-      <div class="hero-inner">
-        <p class="hero-pill">Aesculap &mdash; надежность в каждой поставке</p>
-        <h1 id="hero-headline">Профессиональные инструменты Aesculap — поставки для клиник</h1>
-        <p>Быстрый подбор комплектов, поиск по SKU и категориям, заявка на КП прямо из каталога.</p>
-        <div class="hero-actions">
-          <button class="btn primary" type="button" onclick="document.querySelector('[data-search-input]').focus()">Найти инструмент</button>
-          <a class="btn outline" href="compare.html">Сравнить товары</a>
-        </div>
+    <div class="header__actions">
+      <div class="header__lang-switcher" role="group" aria-label="Language">
+        <button class="lang-btn active" data-lang="ru" aria-label="Русский">RU</button>
+        <button class="lang-btn" data-lang="en" aria-label="English">EN</button>
+        <button class="lang-btn" data-lang="zh" aria-label="中文">ZH</button>
       </div>
-    </section>
-
-    <section class="top-picks">
-      <div class="page-shell">
-        <div class="section-heading"><h2>Помогаем сохранить деньги</h2></div>
-        <div class="pick-grid">
-          <article class="pick-card">
-            <div class="pick-card__info">
-              <div class="pick-card__title">ОСАГО</div>
-              <div class="pick-card__subtitle">Поможем сэкономить до 5 500 ₽</div>
-            </div>
-            <div class="pick-card__icon">🚗</div>
-          </article>
-          <article class="pick-card">
-            <div class="pick-card__info">
-              <div class="pick-card__title">Стерильные наборы</div>
-              <div class="pick-card__subtitle">Базовые и расширенные комплекты</div>
-            </div>
-            <div class="pick-card__icon">🩺</div>
-          </article>
-          <article class="pick-card">
-            <div class="pick-card__info">
-              <div class="pick-card__title">Инструменты</div>
-              <div class="pick-card__subtitle">Качество Aesculap — гарантия</div>
-            </div>
-            <div class="pick-card__icon">🔧</div>
-          </article>
-          <article class="pick-card">
-            <div class="pick-card__info">
-              <div class="pick-card__title">Вклады</div>
-              <div class="pick-card__subtitle">Быстрая поставка и логистика</div>
-            </div>
-            <div class="pick-card__icon">📦</div>
-          </article>
-          <article class="pick-card">
-            <div class="pick-card__info">
-              <div class="pick-card__title">Кредиты</div>
-              <div class="pick-card__subtitle">Условия для клиник</div>
-            </div>
-            <div class="pick-card__icon">💳</div>
-          </article>
-          <article class="pick-card">
-            <div class="pick-card__info">
-              <div class="pick-card__title">Доставка</div>
-              <div class="pick-card__subtitle">По всей России в короткие сроки</div>
-            </div>
-            <div class="pick-card__icon">🚚</div>
-          </article>
-          <article class="pick-card">
-            <div class="pick-card__info">
-              <div class="pick-card__title">Гарантия</div>
-              <div class="pick-card__subtitle">Сервис и поддержка</div>
-            </div>
-            <div class="pick-card__icon">🛠️</div>
-          </article>
-          <article class="pick-card">
-            <div class="pick-card__info">
-              <div class="pick-card__title">Все услуги</div>
-              <div class="pick-card__subtitle">Каталог и дополнительные опции</div>
-            </div>
-            <div class="pick-card__icon">▦</div>
-          </article>
-        </div>
-      </div>
-    </section>
-
-    <div class="dashboard-grid">
-      <aside class="sidebar-card">
-        <div class="sidebar-section">
-          <h2>Категории</h2>
-          <div class="category-tree" id="categories-tree"></div>
-        </div>
-        <div class="sidebar-section">
-          <h2>Фильтры</h2>
-          <div class="filter-group">
-            <label>Бренд</label>
-            <select data-filter-brand>
-              <option value="all">Все бренды</option>
-            </select>
-          </div>
-          <div class="filter-group">
-            <label>Наличие</label>
-            <select data-filter-availability>
-              <option value="all">Все</option>
-              <option value="in">В наличии</option>
-              <option value="out">Под заказ</option>
-            </select>
-          </div>
-          <div class="filter-group">
-            <label>Цена</label>
-            <div class="price-range">
-              <input type="number" step="100" placeholder="От" data-filter-min />
-              <input type="number" step="100" placeholder="До" data-filter-max />
-            </div>
-          </div>
-          <div class="filter-action">
-            <button class="primary" type="button" data-filter-apply>Применить</button>
-            <button class="outline" type="button" data-filter-reset>Сбросить</button>
-          </div>
-        </div>
-      </aside>
-
-      <section>
-        <div class="page-section shelf-card" id="surgery-shelf">
-          <div class="shelf-title"><h2>Для хирургии</h2><button class="see-all" type="button">Смотреть все →</button></div>
-          <div class="horizontal-shelf"></div>
-        </div>
-        <div class="page-section shelf-card" id="suturing-shelf">
-          <div class="shelf-title"><h2>Для зашивания</h2><button class="see-all" type="button">Смотреть все →</button></div>
-          <div class="horizontal-shelf"></div>
-        </div>
-        <div class="page-section shelf-card" id="featured-shelf">
-          <div class="shelf-title"><h2>Специальные предложения</h2><button class="see-all" type="button">Смотреть все →</button></div>
-          <div class="horizontal-shelf"></div>
-        </div>
-        <div class="page-section brand-card">
-          <div class="brand-title"><h2>Наши бренды</h2><a class="see-all" href="#">Все бренды →</a></div>
-          <div class="brand-grid" id="sidebar-brands"></div>
-        </div>
-        <div class="page-section product-grid-wrapper">
-          <div class="catalog-header">
-            <h2>Каталог товаров</h2>
-            <select data-sort>
-              <option value="default">По умолчанию</option>
-              <option value="price">По цене</option>
-              <option value="name">По названию</option>
-            </select>
-          </div>
-          <div class="product-grid" id="products-grid"></div>
-          <div id="catalog-empty" style="display:none;padding:40px;text-align:center;color:var(--text-muted)">Товары не найдены. Попробуйте изменить фильтры.</div>
-          <div id="catalog-sentinel"></div>
-        </div>
-      </section>
+      <button class="header__cart-btn" aria-label="Cart" onclick="location.href='cart.html'">
+        <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M6 2 3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"/><line x1="3" x2="21" y1="6" y2="6"/><path d="M16 10a4 4 0 0 1-8 0"/></svg>
+        <span class="cart-count-label">0</span>
+        <span class="cart-badge hidden" aria-live="polite">0</span>
+      </button>
+      <button class="header__inquiry-btn" data-i18n="btn_inquiry" onclick="location.href='cart.html'">Оставить заявку</button>
     </div>
-  </main>
+  </div>
+</header>
 
-  <aside class="cart-drawer" aria-label="Корзина">
-    <div class="cart-drawer__header">
+<!-- HERO -->
+<section class="hero" aria-labelledby="hero-title">
+  <div class="hero__inner">
+    <div class="hero__tag">🏥 B2B Medical Marketplace</div>
+    <h1 class="hero__title" id="hero-title" data-i18n="hero_title">
+      Медицинское оборудование для <span>профессионалов</span>
+    </h1>
+    <p class="hero__subtitle" data-i18n="hero_subtitle">
+      Хирургические инструменты, диагностика, ИВЛ — только ведущие мировые бренды. Быстрая поставка, сертификация, техподдержка.
+    </p>
+    <div class="hero__actions">
+      <a href="catalog.html" class="btn btn-primary btn-lg" data-i18n="hero_btn_catalog">Смотреть каталог</a>
+      <a href="cart.html" class="btn btn-lg" style="background:rgba(255,255,255,0.1);color:#fff;border:1.5px solid rgba(255,255,255,0.25);" data-i18n="hero_btn_inquiry">Оставить заявку</a>
+    </div>
+    <div class="hero__stats">
       <div>
-        <h2>Корзина</h2>
-        <p id="cart-total">0 ₽</p>
+        <div class="hero__stat-value">2 000+</div>
+        <div class="hero__stat-label">Позиций в каталоге</div>
       </div>
-      <button class="close-button" data-close-cart type="button">×</button>
-    </div>
-    <div class="cart-drawer__body" id="cart-items"></div>
-    <div class="cart-drawer__footer">
-      <button class="btn primary" type="button" data-submit-cart>Оставить заявку на всё</button>
-      <button class="btn outline" type="button" data-clear-cart>Очистить корзину</button>
-    </div>
-  </aside>
-
-  <div class="drawer modal" id="quick-view-modal" aria-hidden="true">
-    <div class="modal__panel">
-      <div class="modal__header">
-        <h3 class="modal-title">Быстрый просмотр</h3>
-        <button class="close-button" type="button" onclick="IndexPage.closeQuickView()">×</button>
+      <div>
+        <div class="hero__stat-value">50+</div>
+        <div class="hero__stat-label">Мировых брендов</div>
       </div>
-      <div class="modal__body"></div>
+      <div>
+        <div class="hero__stat-value">1 500+</div>
+        <div class="hero__stat-label">Клиентов по России</div>
+      </div>
+      <div>
+        <div class="hero__stat-value">10 лет</div>
+        <div class="hero__stat-label">На рынке медтехники</div>
+      </div>
     </div>
   </div>
+</section>
 
-  <div class="drawer modal" id="inquiry-modal" aria-hidden="true">
-    <div class="modal__panel">
-      <div class="modal__header">
-        <h3>Запросить цену</h3>
-        <button class="close-button" type="button" onclick="IndexPage.closeInquiryModal()">×</button>
+<!-- CATEGORIES -->
+<section class="section">
+  <div class="container">
+    <div class="section__header">
+      <div>
+        <h2 class="section__title" data-i18n="section_categories">Категории оборудования</h2>
       </div>
-      <div class="modal__body">
-        <form id="quick-inquiry-form" data-action="inquiry-form">
-          <input type="hidden" name="product" value="" />
-          <div class="filter-group"><label>Имя</label><input name="name" required /></div>
-          <div class="filter-group"><label>Телефон</label><input name="phone" required /></div>
-          <div class="filter-group"><label>Email</label><input name="email" type="email" required /></div>
-          <div class="filter-group"><label>Компания</label><input name="company" /></div>
-          <div class="filter-group"><label>Комментарий</label><textarea name="message"></textarea></div>
-          <div class="modal__footer">
-            <button class="btn outline" type="button" onclick="IndexPage.closeInquiryModal()">Отмена</button>
-            <button class="btn primary" type="submit">Отправить заявку</button>
+      <a href="catalog.html" class="section__link" data-i18n="filter_all">Все →</a>
+    </div>
+    <div class="category-grid" id="category-grid">
+      <!-- rendered by JS -->
+    </div>
+  </div>
+</section>
+
+<!-- FEATURED PRODUCTS -->
+<section class="section section--gray">
+  <div class="container">
+    <div class="section__header">
+      <div>
+        <h2 class="section__title" data-i18n="section_featured">Рекомендуемые товары</h2>
+      </div>
+      <a href="catalog.html" class="section__link">Все товары →</a>
+    </div>
+    <div class="product-grid" id="featured-grid">
+      <!-- rendered by JS -->
+    </div>
+  </div>
+</section>
+
+<!-- BRANDS -->
+<section class="section">
+  <div class="container">
+    <div class="section__header">
+      <h2 class="section__title" data-i18n="section_brands">Наши бренды</h2>
+    </div>
+    <div class="brands-grid" id="brands-grid">
+      <!-- rendered by JS -->
+    </div>
+  </div>
+</section>
+
+<!-- WHY US -->
+<section class="section section--gray">
+  <div class="container">
+    <div class="section__header">
+      <h2 class="section__title" data-i18n="section_why">Почему MedHub</h2>
+    </div>
+    <div class="why-grid">
+      <div class="why-card">
+        <div class="why-card__icon">🏆</div>
+        <div class="why-card__title" data-i18n="why_1_title">Официальные поставки</div>
+        <div class="why-card__text" data-i18n="why_1_text">Прямые контракты с производителями. Оригинальная продукция с гарантией и сертификатами.</div>
+      </div>
+      <div class="why-card">
+        <div class="why-card__icon">🚚</div>
+        <div class="why-card__title" data-i18n="why_2_title">Быстрая поставка</div>
+        <div class="why-card__text" data-i18n="why_2_text">Склад в Москве. Доставка по всей России от 1 рабочего дня.</div>
+      </div>
+      <div class="why-card">
+        <div class="why-card__icon">🔧</div>
+        <div class="why-card__title" data-i18n="why_3_title">Техническая поддержка</div>
+        <div class="why-card__text" data-i18n="why_3_text">Инженеры с опытом 10+ лет. Обслуживание и ремонт оборудования.</div>
+      </div>
+      <div class="why-card">
+        <div class="why-card__icon">📋</div>
+        <div class="why-card__title" data-i18n="why_4_title">Гибкие условия</div>
+        <div class="why-card__text" data-i18n="why_4_text">Рассрочка, лизинг, работа по 44-ФЗ. Индивидуальные условия для крупных клиентов.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- QUICK INQUIRY SECTION -->
+<section class="section">
+  <div class="container">
+    <div style="max-width:640px;margin:0 auto;text-align:center;">
+      <h2 class="section__title" style="margin-bottom:12px;" data-i18n="inquiry_title">Оставить заявку</h2>
+      <p style="color:var(--color-text-muted);margin-bottom:32px;" data-i18n="inquiry_subtitle">Заполните форму, и мы свяжемся с вами в течение 2 часов.</p>
+      <form id="main-inquiry-form" style="text-align:left;">
+        <div style="display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-bottom:14px;">
+          <div class="form-group" style="margin:0">
+            <label class="form-label" data-i18n="form_company">Название организации <span>*</span></label>
+            <input class="form-input" name="company" required data-i18n-placeholder="form_company_placeholder" placeholder="ООО Городская больница №1">
           </div>
-        </form>
-      </div>
-    </div>
-  </div>
-
-  <div class="drawer modal" id="cart-inquiry-modal" aria-hidden="true">
-    <div class="modal__panel">
-      <div class="modal__header">
-        <h3>Заявка по корзине</h3>
-        <button class="close-button" type="button" onclick="IndexPage.closeCartInquiryForm()">×</button>
-      </div>
-      <div class="modal__body">
-        <div id="cart-inquiry-items"></div>
-        <form data-cart-inquiry-form id="cart-inquiry-form">
-          <div class="filter-group"><label>Имя</label><input name="name" required /></div>
-          <div class="filter-group"><label>Телефон</label><input name="phone" required /></div>
-          <div class="filter-group"><label>Email</label><input name="email" type="email" required /></div>
-          <div class="filter-group"><label>Компания</label><input name="company" /></div>
-          <div class="filter-group"><label>Комментарий</label><textarea name="message"></textarea></div>
-          <div class="modal__footer">
-            <button class="btn outline" type="button" onclick="IndexPage.closeCartInquiryForm()">Отмена</button>
-            <button class="btn primary" type="submit">Отправить заявку</button>
+          <div class="form-group" style="margin:0">
+            <label class="form-label" data-i18n="form_contact_name">Контактное лицо <span>*</span></label>
+            <input class="form-input" name="contact" required data-i18n-placeholder="form_contact_placeholder" placeholder="Иван Иванов">
           </div>
-        </form>
-      </div>
+        </div>
+        <div style="display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-bottom:14px;">
+          <div class="form-group" style="margin:0">
+            <label class="form-label" data-i18n="form_phone">Телефон <span>*</span></label>
+            <input class="form-input" name="phone" type="tel" required placeholder="+7 (495) 123-45-67">
+          </div>
+          <div class="form-group" style="margin:0">
+            <label class="form-label" data-i18n="form_email">Email</label>
+            <input class="form-input" name="email" type="email" placeholder="info@clinic.ru">
+          </div>
+        </div>
+        <div class="form-group" style="margin-bottom:20px;">
+          <label class="form-label" data-i18n="form_message">Комментарий</label>
+          <textarea class="form-textarea" name="message" rows="3" data-i18n-placeholder="form_message_placeholder" placeholder="Укажите нужное количество, сроки поставки или другие пожелания..."></textarea>
+        </div>
+        <div style="text-align:center;">
+          <button type="submit" class="btn btn-primary btn-lg" data-i18n="btn_submit">Отправить</button>
+        </div>
+        <div id="main-form-result" style="margin-top:16px;"></div>
+      </form>
     </div>
   </div>
+</section>
 
-  <footer class="page-footer">MedHub — B2B маркетплейс медицинских инструментов Aesculap.</footer>
+<!-- FOOTER -->
+<footer class="footer">
+  <div class="container">
+    <div class="footer__inner">
+      <div>
+        <div class="footer__brand">
+          <span>⚕</span> MedHub
+        </div>
+        <div class="footer__brand-desc">B2B маркетплейс медицинского оборудования. Официальные поставки от ведущих мировых производителей.</div>
+        <div class="footer__contact">
+          <svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0z"/><circle cx="12" cy="10" r="3"/></svg>
+          <span data-i18n="footer_address">г. Москва, ул. Профсоюзная, 57, офис 401</span>
+        </div>
+        <div class="footer__contact">
+          <svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 13.5a19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 3.6 2.7h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l.85-.85a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+          <a href="tel:+74951234567" data-i18n="footer_phone">+7 (495) 123-45-67</a>
+        </div>
+        <div class="footer__contact">
+          <svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+          <a href="mailto:info@medhub.ru" data-i18n="footer_email">info@medhub.ru</a>
+        </div>
+      </div>
+      <div>
+        <div class="footer__col-title" data-i18n="footer_catalog">Каталог</div>
+        <a href="catalog.html?category=surgical-instruments" class="footer__link" data-i18n="cat_surgical">Хирургические инструменты</a>
+        <a href="catalog.html?category=endoscopy" class="footer__link" data-i18n="cat_endoscopy">Эндоскопия</a>
+        <a href="catalog.html?category=anesthesia" class="footer__link" data-i18n="cat_anesthesia">Анестезия и ИВЛ</a>
+        <a href="catalog.html?category=diagnostics" class="footer__link" data-i18n="cat_diagnostics">Диагностика</a>
+        <a href="catalog.html?category=monitoring" class="footer__link" data-i18n="cat_monitoring">Мониторинг</a>
+        <a href="catalog.html" class="footer__link" style="color:var(--color-primary);margin-top:6px;">Все категории →</a>
+      </div>
+      <div>
+        <div class="footer__col-title" data-i18n="nav_about">О компании</div>
+        <a href="#" class="footer__link">О нас</a>
+        <a href="#" class="footer__link">Сертификаты</a>
+        <a href="#" class="footer__link">Партнёры</a>
+        <a href="#" class="footer__link">Вакансии</a>
+        <a href="#" class="footer__link" data-i18n="nav_contacts">Контакты</a>
+      </div>
+      <div>
+        <div class="footer__col-title">Покупателям</div>
+        <a href="cart.html" class="footer__link" data-i18n="btn_inquiry">Оставить заявку</a>
+        <a href="#" class="footer__link">Условия поставки</a>
+        <a href="#" class="footer__link">Лизинг и рассрочка</a>
+        <a href="#" class="footer__link">44-ФЗ / 223-ФЗ</a>
+        <a href="#" class="footer__link" data-i18n="footer_privacy">Конфиденциальность</a>
+      </div>
+    </div>
+    <div class="footer__bottom">
+      <span data-i18n="footer_company">© 2024 MedHub. Все права защищены.</span>
+      <span data-i18n="footer_schedule">Пн–Пт: 9:00–18:00</span>
+    </div>
+  </div>
+</footer>
 
-  <script src="/assets/common.js"></script>
-  <script src="/assets/index.js"></script>
+<script src="assets/js/i18n.js"></script>
+<script src="assets/js/cart.js"></script>
+<script src="assets/js/data.js"></script>
+<script src="assets/js/main.js"></script>
+<script>
+(async function() {
+  await MedData.init();
+
+  // Render categories
+  const cats = MedData.getCategories();
+  const catGrid = document.getElementById('category-grid');
+  catGrid.innerHTML = cats.map(cat => `
+    <div class="category-card" onclick="location.href='catalog.html?category=${cat.slug}'" role="link" tabindex="0">
+      <div class="category-card__icon">${cat.icon}</div>
+      <div class="category-card__name" data-i18n="${cat.nameKey}">${I18n.t(cat.nameKey)}</div>
+    </div>
+  `).join('');
+
+  // Render featured products
+  const featured = MedData.getProducts({ isFeatured: true }).slice(0, 8);
+  const grid = document.getElementById('featured-grid');
+  grid.innerHTML = featured.map(p => renderProductCard(p)).join('');
+
+  // Render brands
+  const brands = MedData.getBrands();
+  const brandGrid = document.getElementById('brands-grid');
+  brandGrid.innerHTML = brands.map(b => `<div class="brand-chip">${b}</div>`).join('');
+
+  // Promo banner from admin settings
+  const promoText = localStorage.getItem('medhub_promo');
+  if (promoText) {
+    const banner = document.getElementById('promo-banner');
+    banner.textContent = promoText;
+    banner.style.display = 'block';
+  }
+
+  // Re-render on lang change
+  document.addEventListener('langChange', () => {
+    catGrid.innerHTML = cats.map(cat => `
+      <div class="category-card" onclick="location.href='catalog.html?category=${cat.slug}'" role="link" tabindex="0">
+        <div class="category-card__icon">${cat.icon}</div>
+        <div class="category-card__name">${I18n.t(cat.nameKey)}</div>
+      </div>
+    `).join('');
+    grid.innerHTML = featured.map(p => renderProductCard(p)).join('');
+  });
+
+  // Main inquiry form
+  document.getElementById('main-inquiry-form').addEventListener('submit', e => {
+    e.preventDefault();
+    const data = Object.fromEntries(new FormData(e.target));
+    saveInquiry(data);
+    const result = document.getElementById('main-form-result');
+    result.innerHTML = `<div class="form-success-msg">✓ ${I18n.t('form_success')}</div>`;
+    e.target.reset();
+    setTimeout(() => result.innerHTML = '', 5000);
+  });
+})();
+</script>
 </body>
 </html>

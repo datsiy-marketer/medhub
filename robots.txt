@@ -1,6 +1,6 @@
 User-agent: *
 Allow: /
 Disallow: /admin/
-Disallow: /api/
+Disallow: /cart.html
 
 Sitemap: https://medhub.ru/sitemap.xml

@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Настройки — MedHub Admin</title>
+  <meta name="robots" content="noindex,nofollow">
+  <link rel="stylesheet" href="../assets/css/main.css">
+</head>
+<body>
+
+<div class="admin-layout">
+
+  <!-- SIDEBAR -->
+  <nav class="admin-sidebar">
+    <div class="admin-sidebar__logo">
+      <span>⚕</span><span>MedHub</span>
+      <span class="admin-sidebar__tag">ADMIN</span>
+    </div>
+    <div style="padding:8px;">
+      <button class="admin-nav__item" onclick="location.href='index.html'">
+        <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/></svg>
+        Дашборд
+      </button>
+      <button class="admin-nav__item" onclick="location.href='products.html'">
+        <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/></svg>
+        Товары
+      </button>
+      <button class="admin-nav__item" onclick="location.href='inquiries.html'">
+        <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
+        Заявки
+      </button>
+      <button class="admin-nav__item active" onclick="location.href='settings.html'">
+        <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1-2.83 2.83l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-4 0v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83-2.83l.06-.06A1.65 1.65 0 0 0 4.68 15a1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1 0-4h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 2.83-2.83l.06.06A1.65 1.65 0 0 0 9 4.68a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 4 0v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 2.83l-.06.06A1.65 1.65 0 0 0 19.4 9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 0 4h-.09a1.65 1.65 0 0 0-1.51 1z"/></svg>
+        Настройки
+      </button>
+    </div>
+    <div style="margin-top:auto;padding:16px;">
+      <a href="../index.html" style="display:flex;align-items:center;gap:8px;font-size:13px;color:#64748b;padding:8px;border-radius:8px;text-decoration:none;">← На сайт</a>
+      <button onclick="sessionStorage.removeItem('medhub_admin');location.href='login.html'" style="display:flex;align-items:center;gap:8px;font-size:13px;color:#64748b;padding:8px;border-radius:8px;background:none;border:none;cursor:pointer;width:100%;">Выйти</button>
+    </div>
+  </nav>
+
+  <!-- MAIN -->
+  <main class="admin-main">
+    <div class="admin-header">
+      <h1 class="admin-header__title">Настройки сайта</h1>
+    </div>
+
+    <div style="display:grid;gap:20px;max-width:720px;">
+
+      <!-- Promo banner -->
+      <div class="admin-card">
+        <div class="admin-card__header">
+          <div class="admin-card__title">Промо-баннер</div>
+        </div>
+        <div style="padding:24px;">
+          <div class="form-group">
+            <label class="form-label">Текст баннера (пусто = баннер скрыт)</label>
+            <input class="form-input" id="promo-text" placeholder="🔥 Специальные условия для государственных больниц в ноябре. Подробнее →">
+            <div style="font-size:12px;color:var(--color-text-muted);margin-top:6px;">Отображается на главной странице вверху</div>
+          </div>
+          <button class="btn btn-primary btn-sm" onclick="savePromo()">Сохранить баннер</button>
+        </div>
+      </div>
+
+      <!-- Contact info -->
+      <div class="admin-card">
+        <div class="admin-card__header">
+          <div class="admin-card__title">Контактная информация</div>
+        </div>
+        <div style="padding:24px;display:grid;gap:14px;">
+          <div class="form-group" style="margin:0">
+            <label class="form-label">Телефон</label>
+            <input class="form-input" id="contact-phone" placeholder="+7 (495) 123-45-67">
+          </div>
+          <div class="form-group" style="margin:0">
+            <label class="form-label">Email</label>
+            <input class="form-input" id="contact-email" type="email" placeholder="info@medhub.ru">
+          </div>
+          <div class="form-group" style="margin:0">
+            <label class="form-label">Адрес</label>
+            <input class="form-input" id="contact-address" placeholder="г. Москва, ул. Профсоюзная, 57">
+          </div>
+          <div class="form-group" style="margin:0">
+            <label class="form-label">Режим работы</label>
+            <input class="form-input" id="contact-schedule" placeholder="Пн–Пт: 9:00–18:00">
+          </div>
+          <button class="btn btn-primary btn-sm" onclick="saveContacts()">Сохранить контакты</button>
+        </div>
+      </div>
+
+      <!-- Password -->
+      <div class="admin-card">
+        <div class="admin-card__header">
+          <div class="admin-card__title">Безопасность</div>
+        </div>
+        <div style="padding:24px;display:grid;gap:14px;">
+          <div class="form-group" style="margin:0">
+            <label class="form-label">Новый пароль администратора</label>
+            <input class="form-input" id="new-password" type="password" placeholder="Минимум 6 символов">
+          </div>
+          <div class="form-group" style="margin:0">
+            <label class="form-label">Подтвердите пароль</label>
+            <input class="form-input" id="confirm-password" type="password" placeholder="Повторите пароль">
+          </div>
+          <div id="pw-error" style="font-size:13px;color:var(--color-danger);display:none;"></div>
+          <button class="btn btn-primary btn-sm" onclick="changePassword()">Изменить пароль</button>
+        </div>
+      </div>
+
+      <!-- Data management -->
+      <div class="admin-card">
+        <div class="admin-card__header">
+          <div class="admin-card__title">Управление данными</div>
+        </div>
+        <div style="padding:24px;display:grid;gap:12px;">
+          <div style="font-size:13px;color:var(--color-text-muted);margin-bottom:4px;">Все изменения товаров и настроек хранятся в localStorage браузера. Для экспорта или сброса используйте кнопки ниже.</div>
+          <div style="display:flex;gap:10px;flex-wrap:wrap;">
+            <button class="btn btn-ghost btn-sm" onclick="exportData()">📥 Экспорт данных</button>
+            <button class="btn btn-sm" style="background:#fef2f2;color:var(--color-danger);border:1.5px solid #fecaca;" onclick="resetProductOverrides()">↩ Сбросить изменения товаров</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </main>
+</div>
+
+<script src="../assets/js/data.js"></script>
+<script>
+  if (sessionStorage.getItem('medhub_admin') !== 'true') location.href = 'login.html';
+
+  // Load saved settings
+  document.getElementById('promo-text').value = localStorage.getItem('medhub_promo') || '';
+  document.getElementById('contact-phone').value = localStorage.getItem('medhub_phone') || '+7 (495) 123-45-67';
+  document.getElementById('contact-email').value = localStorage.getItem('medhub_email') || 'info@medhub.ru';
+  document.getElementById('contact-address').value = localStorage.getItem('medhub_address') || 'г. Москва, ул. Профсоюзная, 57, офис 401';
+  document.getElementById('contact-schedule').value = localStorage.getItem('medhub_schedule') || 'Пн–Пт: 9:00–18:00';
+
+  function toast(msg) {
+    const t = document.createElement('div');
+    t.style.cssText = 'position:fixed;bottom:24px;right:24px;background:var(--color-text);color:#fff;padding:14px 20px;border-radius:10px;font-size:14px;font-weight:600;z-index:9999;';
+    t.textContent = '✓ ' + msg;
+    document.body.appendChild(t);
+    setTimeout(() => t.remove(), 2500);
+  }
+
+  window.savePromo = function() {
+    localStorage.setItem('medhub_promo', document.getElementById('promo-text').value);
+    toast('Промо-баннер сохранён');
+  };
+
+  window.saveContacts = function() {
+    localStorage.setItem('medhub_phone', document.getElementById('contact-phone').value);
+    localStorage.setItem('medhub_email', document.getElementById('contact-email').value);
+    localStorage.setItem('medhub_address', document.getElementById('contact-address').value);
+    localStorage.setItem('medhub_schedule', document.getElementById('contact-schedule').value);
+    toast('Контакты сохранены');
+  };
+
+  window.changePassword = function() {
+    const pw = document.getElementById('new-password').value;
+    const pw2 = document.getElementById('confirm-password').value;
+    const errEl = document.getElementById('pw-error');
+    errEl.style.display = 'none';
+    if (pw.length < 6) { errEl.textContent = 'Минимум 6 символов'; errEl.style.display = ''; return; }
+    if (pw !== pw2) { errEl.textContent = 'Пароли не совпадают'; errEl.style.display = ''; return; }
+    localStorage.setItem('medhub_admin_password', pw);
+    document.getElementById('new-password').value = '';
+    document.getElementById('confirm-password').value = '';
+    toast('Пароль изменён');
+  };
+
+  window.exportData = function() {
+    const data = {
+      products_override: JSON.parse(localStorage.getItem('medhub_products_override') || '{}'),
+      inquiries: JSON.parse(localStorage.getItem('medhub_inquiries') || '[]'),
+      translations_ru: JSON.parse(localStorage.getItem('medhub_translations_ru') || '{}'),
+      translations_en: JSON.parse(localStorage.getItem('medhub_translations_en') || '{}'),
+      settings: {
+        promo: localStorage.getItem('medhub_promo'),
+        phone: localStorage.getItem('medhub_phone'),
+        email: localStorage.getItem('medhub_email'),
+        address: localStorage.getItem('medhub_address'),
+        schedule: localStorage.getItem('medhub_schedule')
+      }
+    };
+    const blob = new Blob([JSON.stringify(data, null, 2)], { type: 'application/json' });
+    const a = document.createElement('a');
+    a.href = URL.createObjectURL(blob);
+    a.download = `medhub-export-${new Date().toISOString().slice(0,10)}.json`;
+    a.click();
+    URL.revokeObjectURL(a.href);
+  };
+
+  window.resetProductOverrides = function() {
+    if (!confirm('Сбросить все изменения товаров? Вернётся исходный каталог из JSON-файлов.')) return;
+    MedData.resetProductOverrides();
+    toast('Изменения товаров сброшены');
+  };
+</script>
+</body>
+</html>

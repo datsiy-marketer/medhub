@@ -1,0 +1,476 @@
+[
+  {
+    "id": "aes-001",
+    "slug": "aesculap-bc253r-clamp",
+    "category": "surgical-instruments",
+    "subcategory": "clamps",
+    "brand": "Aesculap",
+    "sku": "BC253R",
+    "nameKey": "prod_aes001_name",
+    "descriptionKey": "prod_aes001_desc",
+    "image": "https://placehold.co/600x400/f8fafc/64748b?text=Aesculap+BC253R",
+    "images": [
+      "https://placehold.co/600x400/f8fafc/64748b?text=Aesculap+BC253R",
+      "https://placehold.co/600x400/f1f5f9/64748b?text=Side+View",
+      "https://placehold.co/600x400/e2e8f0/64748b?text=Detail"
+    ],
+    "specs": {
+      "Длина": "140 мм",
+      "Материал": "Нержавеющая сталь",
+      "Стерилизация": "Автоклав 134°C",
+      "Страна": "Германия",
+      "Стандарт": "ISO 7153-1"
+    },
+    "tags": ["хирургия", "зажим", "нержавейка"],
+    "isNew": false,
+    "isSale": false,
+    "isFeatured": true,
+    "inStock": true
+  },
+  {
+    "id": "aes-002",
+    "slug": "aesculap-fe405r-scissors",
+    "category": "surgical-instruments",
+    "subcategory": "scissors",
+    "brand": "Aesculap",
+    "sku": "FE405R",
+    "nameKey": "prod_aes002_name",
+    "descriptionKey": "prod_aes002_desc",
+    "image": "https://placehold.co/600x400/f8fafc/64748b?text=Aesculap+Scissors",
+    "images": [
+      "https://placehold.co/600x400/f8fafc/64748b?text=Aesculap+FE405R",
+      "https://placehold.co/600x400/f1f5f9/64748b?text=Side+View"
+    ],
+    "specs": {
+      "Длина": "145 мм",
+      "Тип": "Прямые, острые",
+      "Материал": "Нержавеющая сталь",
+      "Стерилизация": "Автоклав 134°C",
+      "Страна": "Германия"
+    },
+    "tags": ["ножницы", "хирургия"],
+    "isNew": true,
+    "isSale": false,
+    "isFeatured": true,
+    "inStock": true
+  },
+  {
+    "id": "aes-003",
+    "slug": "aesculap-bd522r-forceps",
+    "category": "surgical-instruments",
+    "subcategory": "forceps",
+    "brand": "Aesculap",
+    "sku": "BD522R",
+    "nameKey": "prod_aes003_name",
+    "descriptionKey": "prod_aes003_desc",
+    "image": "https://placehold.co/600x400/f8fafc/64748b?text=Aesculap+Forceps",
+    "images": [
+      "https://placehold.co/600x400/f8fafc/64748b?text=Aesculap+BD522R"
+    ],
+    "specs": {
+      "Длина": "160 мм",
+      "Тип": "Хирургический пинцет",
+      "Зубья": "1×2",
+      "Материал": "Нержавеющая сталь",
+      "Страна": "Германия"
+    },
+    "tags": ["пинцет", "хирургия"],
+    "isNew": false,
+    "isSale": true,
+    "isFeatured": false,
+    "inStock": true
+  },
+  {
+    "id": "ks-001",
+    "slug": "karl-storz-26003ba-endoscope",
+    "category": "endoscopy",
+    "subcategory": "endoscopes",
+    "brand": "Karl Storz",
+    "sku": "26003BA",
+    "nameKey": "prod_ks001_name",
+    "descriptionKey": "prod_ks001_desc",
+    "image": "https://placehold.co/600x400/f8fafc/64748b?text=Karl+Storz+Endoscope",
+    "images": [
+      "https://placehold.co/600x400/f8fafc/64748b?text=Karl+Storz+26003BA",
+      "https://placehold.co/600x400/f1f5f9/64748b?text=Tip+Detail"
+    ],
+    "specs": {
+      "Угол зрения": "0°",
+      "Диаметр": "4 мм",
+      "Длина": "302 мм",
+      "Освещение": "Холодный свет",
+      "Страна": "Германия"
+    },
+    "tags": ["эндоскопия", "лапароскопия", "оптика"],
+    "isNew": false,
+    "isSale": false,
+    "isFeatured": true,
+    "inStock": true
+  },
+  {
+    "id": "ks-002",
+    "slug": "karl-storz-26173bl-laparoscope",
+    "category": "endoscopy",
+    "subcategory": "laparoscopy",
+    "brand": "Karl Storz",
+    "sku": "26173BL",
+    "nameKey": "prod_ks002_name",
+    "descriptionKey": "prod_ks002_desc",
+    "image": "https://placehold.co/600x400/f8fafc/64748b?text=Karl+Storz+Laparoscope",
+    "images": [
+      "https://placehold.co/600x400/f8fafc/64748b?text=Karl+Storz+26173BL"
+    ],
+    "specs": {
+      "Угол зрения": "30°",
+      "Диаметр": "10 мм",
+      "Длина": "330 мм",
+      "Покрытие": "ENDOFLATOR",
+      "Страна": "Германия"
+    },
+    "tags": ["лапароскопия", "эндоскопия"],
+    "isNew": true,
+    "isSale": false,
+    "isFeatured": true,
+    "inStock": true
+  },
+  {
+    "id": "dra-001",
+    "slug": "draeger-primus-anesthesia",
+    "category": "anesthesia",
+    "subcategory": "anesthesia-machines",
+    "brand": "Dräger",
+    "sku": "PRIMUS-IE",
+    "nameKey": "prod_dra001_name",
+    "descriptionKey": "prod_dra001_desc",
+    "image": "https://placehold.co/600x400/f8fafc/64748b?text=Dräger+Primus",
+    "images": [
+      "https://placehold.co/600x400/f8fafc/64748b?text=Dräger+Primus+IE",
+      "https://placehold.co/600x400/f1f5f9/64748b?text=Display+Panel"
+    ],
+    "specs": {
+      "Тип": "Наркозный аппарат",
+      "Вентиляция": "VCV, PCV, SIMV, PSV",
+      "Дисплей": "15\" сенсорный",
+      "Газы": "O₂, Air, N₂O",
+      "Страна": "Германия"
+    },
+    "tags": ["анестезия", "наркоз", "вентиляция"],
+    "isNew": false,
+    "isSale": false,
+    "isFeatured": true,
+    "inStock": true
+  },
+  {
+    "id": "dra-002",
+    "slug": "draeger-evita-infinity-v500",
+    "category": "anesthesia",
+    "subcategory": "ventilators",
+    "brand": "Dräger",
+    "sku": "EVITA-V500",
+    "nameKey": "prod_dra002_name",
+    "descriptionKey": "prod_dra002_desc",
+    "image": "https://placehold.co/600x400/f8fafc/64748b?text=Dräger+Evita+V500",
+    "images": [
+      "https://placehold.co/600x400/f8fafc/64748b?text=Dräger+Evita+V500"
+    ],
+    "specs": {
+      "Тип": "Аппарат ИВЛ",
+      "Режимы": "VC-CMV, PC-CMV, BIPAP, APRV",
+      "Пациенты": "Взрослые, педиатрия",
+      "Дисплей": "15\" WUXGA",
+      "Страна": "Германия"
+    },
+    "tags": ["ИВЛ", "вентиляция", "реанимация"],
+    "isNew": false,
+    "isSale": false,
+    "isFeatured": false,
+    "inStock": true
+  },
+  {
+    "id": "phi-001",
+    "slug": "philips-epiq-elite-ultrasound",
+    "category": "diagnostics",
+    "subcategory": "ultrasound",
+    "brand": "Philips",
+    "sku": "EPIQ-ELITE",
+    "nameKey": "prod_phi001_name",
+    "descriptionKey": "prod_phi001_desc",
+    "image": "https://placehold.co/600x400/f8fafc/64748b?text=Philips+EPIQ+Elite",
+    "images": [
+      "https://placehold.co/600x400/f8fafc/64748b?text=Philips+EPIQ+Elite",
+      "https://placehold.co/600x400/f1f5f9/64748b?text=Screen+View"
+    ],
+    "specs": {
+      "Тип": "УЗИ аппарат экспертного класса",
+      "Дисплей": "23\" 4K",
+      "Датчики": "Совместим с 30+ датчиками",
+      "Технология": "nSIGHT",
+      "Страна": "Нидерланды"
+    },
+    "tags": ["УЗИ", "ультразвук", "диагностика"],
+    "isNew": false,
+    "isSale": false,
+    "isFeatured": true,
+    "inStock": true
+  },
+  {
+    "id": "phi-002",
+    "slug": "philips-intellivue-mx800-monitor",
+    "category": "monitoring",
+    "subcategory": "patient-monitors",
+    "brand": "Philips",
+    "sku": "MX800",
+    "nameKey": "prod_phi002_name",
+    "descriptionKey": "prod_phi002_desc",
+    "image": "https://placehold.co/600x400/f8fafc/64748b?text=Philips+IntelliVue+MX800",
+    "images": [
+      "https://placehold.co/600x400/f8fafc/64748b?text=Philips+IntelliVue+MX800"
+    ],
+    "specs": {
+      "Тип": "Монитор пациента",
+      "Дисплей": "15\" TFT",
+      "Параметры": "ЭКГ, SpO2, NIBP, Temp, CO2",
+      "Память": "72 часа трендов",
+      "Страна": "Нидерланды"
+    },
+    "tags": ["мониторинг", "ЭКГ", "SpO2", "реанимация"],
+    "isNew": false,
+    "isSale": true,
+    "isFeatured": true,
+    "inStock": true
+  },
+  {
+    "id": "str-001",
+    "slug": "stryker-system7-drill",
+    "category": "orthopedics",
+    "subcategory": "fixation",
+    "brand": "Stryker",
+    "sku": "SYS7-DRILL",
+    "nameKey": "prod_str001_name",
+    "descriptionKey": "prod_str001_desc",
+    "image": "https://placehold.co/600x400/f8fafc/64748b?text=Stryker+System+7",
+    "images": [
+      "https://placehold.co/600x400/f8fafc/64748b?text=Stryker+System+7+Drill"
+    ],
+    "specs": {
+      "Тип": "Хирургическая дрель",
+      "Скорость": "до 1500 об/мин",
+      "Питание": "Аккумулятор Li-Ion",
+      "Вес": "0.85 кг",
+      "Страна": "США"
+    },
+    "tags": ["ортопедия", "хирургия", "дрель"],
+    "isNew": false,
+    "isSale": false,
+    "isFeatured": true,
+    "inStock": true
+  },
+  {
+    "id": "str-002",
+    "slug": "stryker-triathlon-knee-system",
+    "category": "orthopedics",
+    "subcategory": "implants",
+    "brand": "Stryker",
+    "sku": "TRIATHLON-TKA",
+    "nameKey": "prod_str002_name",
+    "descriptionKey": "prod_str002_desc",
+    "image": "https://placehold.co/600x400/f8fafc/64748b?text=Stryker+Triathlon",
+    "images": [
+      "https://placehold.co/600x400/f8fafc/64748b?text=Stryker+Triathlon+Knee"
+    ],
+    "specs": {
+      "Тип": "Система эндопротезирования коленного сустава",
+      "Материал": "Co-Cr-Mo, Ti-6Al-4V",
+      "Размеры": "1-9 (левый и правый)",
+      "Полиэтилен": "X3 poly",
+      "Страна": "США"
+    },
+    "tags": ["ортопедия", "эндопротез", "колено", "имплант"],
+    "isNew": false,
+    "isSale": false,
+    "isFeatured": false,
+    "inStock": true
+  },
+  {
+    "id": "jnj-001",
+    "slug": "ethicon-vicryl-suture-2-0",
+    "category": "consumables",
+    "subcategory": "sutures",
+    "brand": "Ethicon (J&J)",
+    "sku": "W9981",
+    "nameKey": "prod_jnj001_name",
+    "descriptionKey": "prod_jnj001_desc",
+    "image": "https://placehold.co/600x400/f8fafc/64748b?text=Ethicon+Vicryl",
+    "images": [
+      "https://placehold.co/600x400/f8fafc/64748b?text=Ethicon+Vicryl+2-0"
+    ],
+    "specs": {
+      "Тип": "Рассасывающийся шовный материал",
+      "Размер": "2/0 (3,5 метрическая)",
+      "Игла": "CT-1, 40 мм, колющая",
+      "Длина нити": "70 см",
+      "Страна": "США"
+    },
+    "tags": ["шовный материал", "рассасывающийся", "хирургия"],
+    "isNew": false,
+    "isSale": true,
+    "isFeatured": false,
+    "inStock": true
+  },
+  {
+    "id": "jnj-002",
+    "slug": "ethicon-prolene-suture-3-0",
+    "category": "consumables",
+    "subcategory": "sutures",
+    "brand": "Ethicon (J&J)",
+    "sku": "8698H",
+    "nameKey": "prod_jnj002_name",
+    "descriptionKey": "prod_jnj002_desc",
+    "image": "https://placehold.co/600x400/f8fafc/64748b?text=Ethicon+Prolene",
+    "images": [
+      "https://placehold.co/600x400/f8fafc/64748b?text=Ethicon+Prolene+3-0"
+    ],
+    "specs": {
+      "Тип": "Нерассасывающийся шовный материал",
+      "Размер": "3/0 (2 метрическая)",
+      "Игла": "SH, 26 мм",
+      "Длина нити": "75 см",
+      "Страна": "США"
+    },
+    "tags": ["шовный материал", "нерассасывающийся", "сосудистая хирургия"],
+    "isNew": false,
+    "isSale": false,
+    "isFeatured": false,
+    "inStock": true
+  },
+  {
+    "id": "med-001",
+    "slug": "medtronic-hugo-ras-system",
+    "category": "surgical-instruments",
+    "subcategory": "retractors",
+    "brand": "Medtronic",
+    "sku": "HUGO-RAS",
+    "nameKey": "prod_med001_name",
+    "descriptionKey": "prod_med001_desc",
+    "image": "https://placehold.co/600x400/f8fafc/64748b?text=Medtronic+Hugo",
+    "images": [
+      "https://placehold.co/600x400/f8fafc/64748b?text=Medtronic+Hugo+RAS"
+    ],
+    "specs": {
+      "Тип": "Роботизированная хирургическая система",
+      "Руки": "4 инструментальных руки",
+      "Доступы": "Лапароскопический, торакоскопический",
+      "Визуализация": "3D HD 10x",
+      "Страна": "США"
+    },
+    "tags": ["роботическая хирургия", "лапароскопия", "hi-tech"],
+    "isNew": true,
+    "isSale": false,
+    "isFeatured": true,
+    "inStock": true
+  },
+  {
+    "id": "ste-001",
+    "slug": "steris-amsco-v-pro-sterilizer",
+    "category": "sterilization",
+    "subcategory": "autoclaves",
+    "brand": "STERIS",
+    "sku": "VPRO-MAXX",
+    "nameKey": "prod_ste001_name",
+    "descriptionKey": "prod_ste001_desc",
+    "image": "https://placehold.co/600x400/f8fafc/64748b?text=STERIS+V-PRO",
+    "images": [
+      "https://placehold.co/600x400/f8fafc/64748b?text=STERIS+V-PRO+maX+"
+    ],
+    "specs": {
+      "Тип": "Стерилизатор низкотемпературный",
+      "Метод": "Перекись водорода",
+      "Объём камеры": "148 л",
+      "Цикл": "28-55 минут",
+      "Страна": "США"
+    },
+    "tags": ["стерилизация", "автоклав", "перекись"],
+    "isNew": false,
+    "isSale": false,
+    "isFeatured": false,
+    "inStock": true
+  },
+  {
+    "id": "bec-001",
+    "slug": "beckman-coulter-dxh-900",
+    "category": "laboratory",
+    "subcategory": "analyzers",
+    "brand": "Beckman Coulter",
+    "sku": "DXH-900",
+    "nameKey": "prod_bec001_name",
+    "descriptionKey": "prod_bec001_desc",
+    "image": "https://placehold.co/600x400/f8fafc/64748b?text=Beckman+DxH+900",
+    "images": [
+      "https://placehold.co/600x400/f8fafc/64748b?text=Beckman+Coulter+DxH+900"
+    ],
+    "specs": {
+      "Тип": "Гематологический анализатор",
+      "Производительность": "до 100 проб/час",
+      "Параметры": "5-part дифференцировка",
+      "Объём пробы": "1,5 мл",
+      "Страна": "США"
+    },
+    "tags": ["гематология", "анализатор", "лаборатория"],
+    "isNew": false,
+    "isSale": false,
+    "isFeatured": false,
+    "inStock": true
+  },
+  {
+    "id": "ge-001",
+    "slug": "ge-logiq-e10-ultrasound",
+    "category": "diagnostics",
+    "subcategory": "ultrasound",
+    "brand": "GE Healthcare",
+    "sku": "LOGIQ-E10",
+    "nameKey": "prod_ge001_name",
+    "descriptionKey": "prod_ge001_desc",
+    "image": "https://placehold.co/600x400/f8fafc/64748b?text=GE+LOGIQ+E10",
+    "images": [
+      "https://placehold.co/600x400/f8fafc/64748b?text=GE+LOGIQ+E10"
+    ],
+    "specs": {
+      "Тип": "УЗИ аппарат экспертного класса",
+      "Технология": "cSound Architecture",
+      "ИИ": "Встроенный AI-анализ",
+      "Дисплей": "21.5\" Full HD",
+      "Страна": "США"
+    },
+    "tags": ["УЗИ", "диагностика", "ультразвук", "AI"],
+    "isNew": true,
+    "isSale": false,
+    "isFeatured": true,
+    "inStock": true
+  },
+  {
+    "id": "zim-001",
+    "slug": "zimmer-biomet-persona-knee",
+    "category": "orthopedics",
+    "subcategory": "implants",
+    "brand": "Zimmer Biomet",
+    "sku": "PERSONA-TKA",
+    "nameKey": "prod_zim001_name",
+    "descriptionKey": "prod_zim001_desc",
+    "image": "https://placehold.co/600x400/f8fafc/64748b?text=Zimmer+Persona",
+    "images": [
+      "https://placehold.co/600x400/f8fafc/64748b?text=Zimmer+Biomet+Persona"
+    ],
+    "specs": {
+      "Тип": "Система тотального эндопротезирования колена",
+      "Материал": "Кобальт-хром, титан",
+      "Размеры": "A1-F9",
+      "Технология": "RP™ Tibial Plate",
+      "Страна": "США"
+    },
+    "tags": ["ортопедия", "эндопротез", "колено", "имплант"],
+    "isNew": false,
+    "isSale": false,
+    "isFeatured": false,
+    "inStock": true
+  }
+]

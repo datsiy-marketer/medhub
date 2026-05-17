@@ -1,163 +1,243 @@
 <!DOCTYPE html>
-<html lang="ru" data-lang="ru">
+<html lang="ru">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>MedHub — товар</title>
-  <meta name="description" content="Подробная страница товара MedHub. Уточнение цены, доставка и характеристики." />
-  <link rel="canonical" href="https://medhub.ru/product.html" />
-  <meta property="og:title" content="MedHub — товар" />
-  <meta property="og:description" content="Подробная страница товара MedHub." />
-  <meta property="og:image" content="https://medhub.ru/og-image.jpg" />
-  <meta property="og:type" content="product" />
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Golos+Text:wght@300;400;500;600&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="/assets/styles.css">
+  <title id="page-title">Товар — MedHub</title>
+  <meta name="description" id="page-desc" content="Медицинское оборудование от ведущих мировых брандов. Купить оптом с доставкой по России.">
+  <link rel="stylesheet" href="assets/css/main.css">
 </head>
 <body>
-  <header class="site-header">
-    <div class="page-shell site-nav">
-      <div class="site-logo">
-        <a href="/" class="site-logo__title">MedHub</a>
-        <span class="site-logo__tag">B2B маркетплейс</span>
-      </div>
-      <div class="site-actions">
-        <button class="header-btn outline cart-button" data-cart-toggle>
-          🛒 Корзина <span class="badge" id="cart-count">0</span>
-        </button>
-        <a class="header-btn primary" href="/admin/login.html">Войти</a>
-      </div>
+
+<!-- HEADER -->
+<header class="header">
+  <div class="header__inner">
+    <a href="index.html" class="header__logo">
+      <div class="header__logo-icon">⚕</div>
+      MedHub
+    </a>
+    <div class="header__search">
+      <svg class="header__search-icon" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg>
+      <input class="header__search-input" type="search" data-i18n-placeholder="search_placeholder" placeholder="Поиск..." aria-label="Search">
     </div>
-  </header>
-
-  <main class="page-shell">
-    <nav id="breadcrumbs" style="display:flex;gap:8px;padding:20px 0;color:var(--text-muted);font-size:14px"></nav>
-
-    <div class="product-detail">
-      <section class="product-gallery">
-        <div class="product-gallery__main" id="product-image">
-          <img data-main-image src="" alt="" />
-          <button class="btn outline" type="button" data-toggle-zoom style="position:absolute;right:18px;bottom:18px;">Увеличить</button>
-        </div>
-        <div class="product-gallery__thumbs" id="gallery-thumbs"></div>
-      </section>
-
-      <section class="product-info">
-        <article class="product-info-card" data-product-card>
-          <h1 data-product-title>Загрузка товара...</h1>
-          <div class="product-meta">
-            <div data-product-sku></div>
-            <div data-product-brand></div>
-            <div data-view-count>Просмотрено 0 раз</div>
-          </div>
-          <div class="product-price" data-product-price>Цена</div>
-          <div class="product-badges">
-            <span class="badge-pill" data-product-stock>Наличие</span>
-            <span class="badge-pill">Доставка уточняется при заявке</span>
-          </div>
-          <button class="btn primary" type="button" data-add-cart>Добавить в корзину</button>
-          <button class="btn outline" type="button" onclick="ProductPage.openInquiryModal()">Запросить цену / КП</button>
-          <button class="btn secondary" type="button" data-add-compare>Сравнить</button>
-        </article>
-
-        <article class="product-tabs">
-          <div class="tab-list">
-            <button class="tab-button active" data-tab-button data-tab-target="description">Описание</button>
-            <button class="tab-button" data-tab-button data-tab-target="specs">Характеристики</button>
-            <button class="tab-button" data-tab-button data-tab-target="delivery">Доставка и оплата</button>
-          </div>
-          <div class="tab-panel" data-tab-pane="description" id="description-tab"></div>
-          <div class="tab-panel hidden" data-tab-pane="specs">
-            <table class="spec-table" id="product-specs-body"></table>
-          </div>
-          <div class="tab-panel hidden" data-tab-pane="delivery">
-            <p>Медицинские товары поставляются B2B под заказ. Сроки и условия доставки уточняются после получения заявки. Оплата по счету, договор, отсрочка и самовывоз доступны для клиник.</p>
-          </div>
-        </article>
-      </section>
+    <div class="header__actions">
+      <div class="header__lang-switcher">
+        <button class="lang-btn active" data-lang="ru">RU</button>
+        <button class="lang-btn" data-lang="en">EN</button>
+        <button class="lang-btn" data-lang="zh">ZH</button>
+      </div>
+      <button class="header__cart-btn" onclick="location.href='cart.html'">
+        <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M6 2 3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"/><line x1="3" x2="21" y1="6" y2="6"/><path d="M16 10a4 4 0 0 1-8 0"/></svg>
+        <span class="cart-count-label">0</span>
+        <span class="cart-badge hidden">0</span>
+      </button>
+      <button class="header__inquiry-btn" data-i18n="btn_inquiry" onclick="location.href='cart.html'">Оставить заявку</button>
     </div>
+  </div>
+</header>
 
-    <section class="recently-viewed" id="recently-viewed-section">
-      <div class="section-heading"><h2>Недавно просмотренные</h2></div>
-      <div class="recently-viewed-list" id="recently-viewed-list"></div>
-    </section>
-  </main>
+<div class="container product-page" id="product-content">
+  <!-- rendered by JS -->
+  <div style="text-align:center;padding:80px 0;">
+    <div style="font-size:32px;margin-bottom:16px;">⏳</div>
+    <div>Загрузка...</div>
+  </div>
+</div>
 
-  <aside class="cart-drawer" aria-label="Корзина">
-    <div class="cart-drawer__header">
+<!-- RELATED PRODUCTS -->
+<section class="section section--gray" id="related-section" style="display:none;">
+  <div class="container">
+    <div class="section__header">
+      <h2 class="section__title" data-i18n="label_related">Похожие товары</h2>
+    </div>
+    <div class="product-grid" id="related-grid"></div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="footer">
+  <div class="container">
+    <div class="footer__inner">
       <div>
-        <h2>Корзина</h2>
-        <p id="cart-total">0 ₽</p>
+        <div class="footer__brand"><span>⚕</span> MedHub</div>
+        <div class="footer__brand-desc">B2B маркетплейс медицинского оборудования.</div>
+        <div class="footer__contact">
+          <svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 13.5a19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 3.6 2.7h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l.85-.85a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+          <a href="tel:+74951234567">+7 (495) 123-45-67</a>
+        </div>
       </div>
-      <button class="close-button" data-close-cart type="button">×</button>
+      <div>
+        <div class="footer__col-title" data-i18n="footer_catalog">Каталог</div>
+        <a href="catalog.html?category=surgical-instruments" class="footer__link" data-i18n="cat_surgical">Хирургические инструменты</a>
+        <a href="catalog.html?category=endoscopy" class="footer__link" data-i18n="cat_endoscopy">Эндоскопия</a>
+        <a href="catalog.html?category=anesthesia" class="footer__link" data-i18n="cat_anesthesia">Анестезия и ИВЛ</a>
+      </div>
+      <div>
+        <div class="footer__col-title">Покупателям</div>
+        <a href="cart.html" class="footer__link" data-i18n="btn_inquiry">Оставить заявку</a>
+        <a href="#" class="footer__link">Условия поставки</a>
+      </div>
+      <div>
+        <div class="footer__col-title">Контакты</div>
+        <div class="footer__link">г. Москва</div>
+        <div class="footer__link">info@medhub.ru</div>
+      </div>
     </div>
-    <div class="cart-drawer__body" id="cart-items"></div>
-    <div class="cart-drawer__footer">
-      <button class="btn primary" type="button" data-submit-cart>Оставить заявку на всё</button>
-      <button class="btn outline" type="button" data-clear-cart>Очистить корзину</button>
-    </div>
-  </aside>
-
-  <div class="drawer modal" id="zoom-modal">
-    <div class="modal__panel">
-      <div class="modal__header">
-        <h3>Увеличить изображение</h3>
-        <button class="close-button" type="button" data-zoom-close>×</button>
-      </div>
-      <div class="modal__body" style="padding:0">
-        <img src="" alt="" id="zoom-image" style="width:100%;display:block;" />
-      </div>
+    <div class="footer__bottom">
+      <span data-i18n="footer_company">© 2024 MedHub. Все права защищены.</span>
     </div>
   </div>
+</footer>
 
-  <div class="drawer modal" id="product-inquiry-modal">
-    <div class="modal__panel">
-      <div class="modal__header">
-        <h3>Запросить цену / КП</h3>
-        <button class="close-button" type="button" data-close-inquiry>×</button>
+<script src="assets/js/i18n.js"></script>
+<script src="assets/js/cart.js"></script>
+<script src="assets/js/data.js"></script>
+<script src="assets/js/main.js"></script>
+<script>
+(async function() {
+  await MedData.init();
+
+  const params = new URLSearchParams(location.search);
+  const slug = params.get('slug');
+
+  if (!slug) {
+    location.href = 'catalog.html';
+    return;
+  }
+
+  function renderProduct() {
+    const product = MedData.getBySlug(slug);
+    if (!product) {
+      document.getElementById('product-content').innerHTML = `
+        <div style="text-align:center;padding:80px 0;">
+          <div style="font-size:48px;margin-bottom:16px;">🔍</div>
+          <h2>Товар не найден</h2>
+          <p style="color:var(--color-text-muted);margin:12px 0 24px;">Возможно, он был удалён или перемещён.</p>
+          <a href="catalog.html" class="btn btn-primary">Перейти в каталог</a>
+        </div>`;
+      return;
+    }
+
+    const name = I18n.t(product.nameKey);
+    const desc = I18n.t(product.descriptionKey);
+    const cat = MedData.getCategoryById(product.category);
+    const catName = cat ? I18n.t(cat.nameKey) : product.category;
+
+    // Update page meta
+    document.getElementById('page-title').textContent = `${name} — MedHub`;
+    document.getElementById('page-desc').content = desc.substring(0, 160);
+
+    // JSON-LD for SEO
+    const jsonLd = document.createElement('script');
+    jsonLd.type = 'application/ld+json';
+    jsonLd.textContent = JSON.stringify({
+      "@context": "https://schema.org",
+      "@type": "Product",
+      "name": name,
+      "description": desc,
+      "brand": { "@type": "Brand", "name": product.brand },
+      "sku": product.sku,
+      "image": product.images,
+      "offers": {
+        "@type": "Offer",
+        "availability": "https://schema.org/InStock",
+        "priceCurrency": "RUB",
+        "seller": { "@type": "Organization", "name": "MedHub" }
+      }
+    });
+    document.head.appendChild(jsonLd);
+
+    const badges = [];
+    if (product.isNew) badges.push(`<span class="badge badge-new">${I18n.t('label_new')}</span>`);
+    if (product.isSale) badges.push(`<span class="badge badge-sale">${I18n.t('label_sale')}</span>`);
+    if (product.inStock) badges.push(`<span class="badge badge-in-stock">● ${I18n.t('label_in_stock')}</span>`);
+
+    const specsRows = Object.entries(product.specs || {}).map(([k, v]) =>
+      `<tr><td>${k}</td><td>${v}</td></tr>`
+    ).join('');
+
+    const thumbs = (product.images || [product.image]).map((img, i) =>
+      `<div class="product-gallery__thumb ${i === 0 ? 'active' : ''}" onclick="switchImage(this, '${img}')">
+        <img src="${img}" alt="${name}" loading="lazy">
+      </div>`
+    ).join('');
+
+    document.getElementById('product-content').innerHTML = `
+      <div class="product-page__breadcrumb">
+        <a href="index.html">${I18n.t('nav_home')}</a>
+        <span class="product-page__breadcrumb-sep">›</span>
+        <a href="catalog.html">${I18n.t('nav_catalog')}</a>
+        <span class="product-page__breadcrumb-sep">›</span>
+        <a href="catalog.html?category=${product.category}">${catName}</a>
+        <span class="product-page__breadcrumb-sep">›</span>
+        <span>${name}</span>
       </div>
-      <div class="modal__body">
-        <form data-product-inquiry-form id="product-inquiry-form">
-          <input type="hidden" name="product" value="" />
-          <div class="filter-group"><label>Имя</label><input name="name" required /></div>
-          <div class="filter-group"><label>Телефон</label><input name="phone" required /></div>
-          <div class="filter-group"><label>Email</label><input name="email" type="email" required /></div>
-          <div class="filter-group"><label>Компания</label><input name="company" /></div>
-          <div class="filter-group"><label>Комментарий</label><textarea name="message"></textarea></div>
-          <div class="modal__footer">
-            <button class="btn outline" type="button" data-close-inquiry>Отмена</button>
-            <button class="btn primary" type="submit">Отправить заявку</button>
+
+      <div class="product-page__grid">
+        <!-- Gallery -->
+        <div class="product-gallery">
+          <div class="product-gallery__main">
+            <img id="main-img" src="${product.images?.[0] || product.image}" alt="${name}" onerror="this.src='https://placehold.co/600x400/f8fafc/64748b?text=${encodeURIComponent(product.brand)}'">
           </div>
-        </form>
-      </div>
-    </div>
-  </div>
+          ${thumbs.length > 1 ? `<div class="product-gallery__thumbs">${thumbs}</div>` : ''}
+        </div>
 
-  <div class="drawer modal" id="cart-inquiry-modal">
-    <div class="modal__panel">
-      <div class="modal__header">
-        <h3>Заявка по корзине</h3>
-        <button class="close-button" type="button" data-close-cart-inquiry>×</button>
-      </div>
-      <div class="modal__body">
-        <div id="cart-inquiry-items"></div>
-        <form data-cart-inquiry-form id="cart-inquiry-form">
-          <div class="filter-group"><label>Имя</label><input name="name" required /></div>
-          <div class="filter-group"><label>Телефон</label><input name="phone" required /></div>
-          <div class="filter-group"><label>Email</label><input name="email" type="email" required /></div>
-          <div class="filter-group"><label>Компания</label><input name="company" /></div>
-          <div class="filter-group"><label>Комментарий</label><textarea name="message"></textarea></div>
-          <div class="modal__footer">
-            <button class="btn outline" type="button" data-close-cart-inquiry>Отмена</button>
-            <button class="btn primary" type="submit">Отправить заявку</button>
+        <!-- Info -->
+        <div class="product-info">
+          <div class="product-info__header">
+            <div class="product-info__brand">${product.brand}</div>
+            <h1 class="product-info__name">${name}</h1>
+            <div class="product-info__sku">SKU: ${product.sku}</div>
           </div>
-        </form>
-      </div>
-    </div>
-  </div>
+          <div class="product-info__badges">${badges.join('')}</div>
+          <p class="product-info__desc">${desc}</p>
+          <div class="product-info__actions">
+            <button class="btn btn-primary btn-lg" onclick="Cart.add(${JSON.stringify(product).replace(/"/g, '&quot;')}); showToast(I18n.t('btn_add_cart'))" id="btn-cart">${I18n.t('btn_add_cart')}</button>
+            <button class="btn btn-outline btn-lg" onclick="openInquiryModal(${JSON.stringify(product).replace(/"/g, '&quot;')})" id="btn-inquiry">${I18n.t('btn_request_product')}</button>
+          </div>
+          <hr class="product-info__divider">
 
-  <script src="/assets/common.js"></script>
-  <script src="/assets/product.js"></script>
+          <!-- Tabs -->
+          <div class="tabs">
+            <button class="tab-btn active" onclick="switchTab('specs')" id="tab-specs">${I18n.t('label_specs')}</button>
+            <button class="tab-btn" onclick="switchTab('desc')" id="tab-desc">${I18n.t('label_description')}</button>
+          </div>
+          <div class="tab-pane active" id="pane-specs">
+            <table class="specs-table"><tbody>${specsRows}</tbody></table>
+          </div>
+          <div class="tab-pane" id="pane-desc">
+            <p style="font-size:14px;color:var(--color-text-muted);line-height:1.7;">${desc}</p>
+          </div>
+        </div>
+      </div>`;
+
+    // Render related products
+    const related = MedData.getProducts({ category: product.category })
+      .filter(p => p.slug !== product.slug)
+      .slice(0, 4);
+    if (related.length > 0) {
+      document.getElementById('related-section').style.display = '';
+      document.getElementById('related-grid').innerHTML = related.map(p => renderProductCard(p)).join('');
+    }
+  }
+
+  window.switchImage = function(thumbEl, src) {
+    document.getElementById('main-img').src = src;
+    document.querySelectorAll('.product-gallery__thumb').forEach(t => t.classList.remove('active'));
+    thumbEl.classList.add('active');
+  };
+
+  window.switchTab = function(tab) {
+    document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+    document.querySelectorAll('.tab-pane').forEach(p => p.classList.remove('active'));
+    document.getElementById('tab-' + tab).classList.add('active');
+    document.getElementById('pane-' + tab).classList.add('active');
+  };
+
+  renderProduct();
+
+  document.addEventListener('langChange', renderProduct);
+})();
+</script>
 </body>
 </html>

@@ -1,110 +1,88 @@
-# MedHub — Конфигурация и инструкция по деплою
+# MedHub — Инструкция по развёртыванию
 
-## Структура файлов
+## Структура проекта
 
 ```
-medhub/
-├── index.html                  ← Главная страница каталога
-├── products_aesculap.json      ← База товаров (36 позиций Aesculap)
+MedHub/
+├── index.html          # Главная страница
+├── catalog.html        # Каталог с фильтрами и боковой панелью
+├── product.html        # Страница товара (slug через query param)
+├── cart.html           # Корзина + форма заявки
 ├── admin/
-│   ├── login.html              ← Страница входа в админку
-│   └── dashboard.html          ← Панель управления
-├── api/
-│   ├── submit-inquiry.js       ← Serverless: заявки → TG + Sheets
-│   └── google-apps-script.js   ← Вставить в Google Apps Script
-└── _headers                    ← Cloudflare: безопасность + кеш
+│   ├── login.html      # Вход в административную панель
+│   ├── index.html      # Дашборд
+│   ├── products.html   # Управление товарами
+│   ├── inquiries.html  # Управление заявками
+│   └── settings.html   # Настройки сайта
+├── assets/
+│   ├── css/main.css    # Весь CSS дизайн-системы
+│   └── js/
+│       ├── i18n.js     # Мультиязычность (RU/EN/ZH)
+│       ├── cart.js     # Корзина (localStorage)
+│       ├── data.js     # Загрузка и управление данными
+│       └── main.js     # Глобальный JS, утилиты
+├── data/
+│   ├── products.json   # Каталог товаров
+│   ├── categories.json # Категории и подкатегории
+│   └── translations/
+│       ├── ru.json     # Русский язык
+│       ├── en.json     # English
+│       └── zh.json     # 中文
+├── sitemap.xml         # SEO sitemap
+├── robots.txt          # Директивы для поисковиков
+└── vercel.json         # Конфигурация для Vercel
 ```
 
-## ДЕПЛОЙ НА CLOUDFLARE PAGES (рекомендуется)
+## Развёртывание на Vercel
 
-### Шаг 1: GitHub
-```bash
-git init
-git add .
-git commit -m "MedHub MVP v1.0"
-git remote add origin https://github.com/ТВОЙAKkount/medhub.git
-git push -u origin main
-```
+1. Загрузите проект на GitHub
+2. Подключите репозиторий к Vercel (vercel.com/new)
+3. Framework Preset: **Other**
+4. Build Command: оставьте пустым
+5. Output Directory: оставьте `.` (корень)
+6. Нажмите Deploy
 
-### Шаг 2: Cloudflare Pages
-1. Войди на dash.cloudflare.com
-2. Pages → Create a project → Connect to Git
-3. Выбери репозиторий medhub
-4. Build settings:
-   - Framework: None
-   - Build command: (пусто)
-   - Build output directory: /
-5. Нажми Save and Deploy
+## Развёртывание на любом хостинге
 
-### Шаг 3: Переменные окружения (Cloudflare → Settings → Environment)
-```
-TG_BOT_TOKEN    = 8919458968:AAFyWBC7rbQ_gKmEF9VAwG27mKxxjhQQg98
-TG_CHAT_ID      = -5268360165
-GOOGLE_SHEETS_ID = 1O95X2c76n2kuIQWUMsyYKj7zGWYqng6AzhHyVOHuvMA
-APPS_SCRIPT_WEBHOOK = (после настройки Apps Script)
-```
+Это статический сайт — просто скопируйте все файлы в корень веб-сервера.
+Работает без сборки, без Node.js, без базы данных.
 
-### Шаг 4: Cloudflare Worker для API
-```bash
-npm install -g wrangler
-wrangler login
-wrangler deploy api/submit-inquiry.js --name medhub-api
-```
+## Административная панель
 
-Или используй Cloudflare Pages Functions (автоматически из папки /functions/).
+- URL: `/admin/login.html`
+- Логин: `admin@medhub.ru`
+- Пароль по умолчанию: `admin123`
 
-## GOOGLE APPS SCRIPT (для Sheets)
+**Важно**: Смените пароль в Настройках сразу после первого входа.
 
-1. Открой таблицу: https://docs.google.com/spreadsheets/d/1O95X2c76n2kuIQWUMsyYKj7zGWYqng6AzhHyVOHuvMA
-2. Расширения → Apps Script
-3. Вставь содержимое файла api/google-apps-script.js
-4. Сохрани (Ctrl+S)
-5. Запустить → Протестировать → doGet (проверь что работает)
-6. Развернуть → Новое развертывание:
-   - Тип: Веб-приложение
-   - Выполнять как: Я
-   - Кто имеет доступ: Все
-7. Нажми Развернуть, скопируй URL
-8. Добавь URL в переменные окружения как APPS_SCRIPT_WEBHOOK
+Изменения в админке хранятся в localStorage браузера. Для переноса данных
+используйте функцию «Экспорт данных» в разделе Настройки.
 
-## ДАННЫЕ ДЛЯ ВХОДА В АДМИНКУ
+## Добавление товаров
 
-URL: /admin/login.html
-Логин: admin
-Пароль: MedHub2026!
+1. Перейдите в `/admin/products.html`
+2. Нажмите «+ Добавить товар»
+3. Заполните форму (название на RU и EN обязательно)
+4. Сохраните
 
-(Смена пароля — в разделе Настройки или через консоль браузера)
+Для постоянного хранения добавьте товар в `/data/products.json`.
 
-## TELEGRAM ИНТЕГРАЦИЯ
+## SEO
 
-Бот: 8919458968:AAFyWBC7rbQ_gKmEF9VAwG27mKxxjhQQg98
-Чат: -5268360165
+Каждая страница имеет:
+- `<title>` и `<meta description>`
+- Open Graph теги
+- JSON-LD структурированные данные (Schema.org Product)
+- Канонические URL
+- hreflang для мультиязычности
 
-Бот должен быть добавлен в групповой чат как администратор!
-Команды для проверки: отправь /start в чат с ботом.
+Обновите `sitemap.xml` при добавлении новых товаров.
+После деплоя замените `https://medhub.ru` на реальный домен.
 
-## SEO НАСТРОЙКИ
+## Мультиязычность
 
-После деплоя:
-1. Google Search Console → Add property → ввести домен
-2. Залить sitemap.xml
-3. Настроить robots.txt (уже создан)
-4. Yandex Webmaster → аналогично
-
-## СМЕНА ПАРОЛЯ АДМИНКИ
-
-В консоли браузера (F12) на странице /admin/login.html:
-```javascript
-crypto.subtle.digest('SHA-256', new TextEncoder().encode('НовыйПароль'))
-  .then(b => console.log([...new Uint8Array(b)].map(x=>x.toString(16).padStart(2,'0')).join('')))
-```
-Скопируй хэш и замени в admin/login.html в объекте CREDENTIALS.
-
-## SUPABASE (для продакшна)
-
-1. supabase.com → New project
-2. SQL Editor → вставь схему из ARCHITECTURE.md
-3. Добавь переменные:
-   SUPABASE_URL = https://ХХХ.supabase.co
-   SUPABASE_ANON_KEY = eyJ...
-4. Замени fetch('../products_aesculap.json') на fetch('/api/products')
+Языки переключаются в header. Переводы хранятся в `/data/translations/`.
+Для добавления нового языка:
+1. Создайте `/data/translations/XX.json` по шаблону `ru.json`
+2. Добавьте кнопку в header (атрибут `data-lang="XX"`)
+3. Добавьте язык в массив `SUPPORTED` в `assets/js/i18n.js`

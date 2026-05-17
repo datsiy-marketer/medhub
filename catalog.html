@@ -1,0 +1,317 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Каталог медицинского оборудования — MedHub</title>
+  <meta name="description" content="Полный каталог медицинского оборудования: хирургические инструменты, эндоскопы, аппараты ИВЛ, УЗИ, мониторы пациента. Бренды: Aesculap, Karl Storz, Philips, Dräger, Stryker.">
+  <link rel="canonical" href="https://medhub.ru/catalog">
+  <link rel="stylesheet" href="assets/css/main.css">
+</head>
+<body>
+
+<!-- HEADER -->
+<header class="header">
+  <div class="header__inner">
+    <a href="index.html" class="header__logo">
+      <div class="header__logo-icon">⚕</div>
+      MedHub
+    </a>
+    <div class="header__search">
+      <svg class="header__search-icon" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg>
+      <input class="header__search-input" type="search" id="catalog-search" data-i18n-placeholder="search_placeholder" placeholder="Поиск оборудования, бренда, артикула..." aria-label="Search">
+    </div>
+    <div class="header__actions">
+      <div class="header__lang-switcher">
+        <button class="lang-btn active" data-lang="ru">RU</button>
+        <button class="lang-btn" data-lang="en">EN</button>
+        <button class="lang-btn" data-lang="zh">ZH</button>
+      </div>
+      <button class="header__cart-btn" onclick="location.href='cart.html'">
+        <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M6 2 3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"/><line x1="3" x2="21" y1="6" y2="6"/><path d="M16 10a4 4 0 0 1-8 0"/></svg>
+        <span class="cart-count-label">0</span>
+        <span class="cart-badge hidden">0</span>
+      </button>
+      <button class="header__inquiry-btn" data-i18n="btn_inquiry" onclick="location.href='cart.html'">Оставить заявку</button>
+    </div>
+  </div>
+</header>
+
+<!-- BREADCRUMB -->
+<div class="container" style="padding-top:20px;">
+  <div class="product-page__breadcrumb">
+    <a href="index.html" data-i18n="nav_home">Главная</a>
+    <span class="product-page__breadcrumb-sep">›</span>
+    <span id="breadcrumb-cat" data-i18n="nav_catalog">Каталог</span>
+    <span class="product-page__breadcrumb-sep" id="breadcrumb-sub-sep" style="display:none;">›</span>
+    <span id="breadcrumb-sub" style="display:none;"></span>
+  </div>
+</div>
+
+<!-- CATALOG LAYOUT -->
+<div class="container">
+  <div class="catalog-layout">
+
+    <!-- SIDEBAR -->
+    <aside class="sidebar" aria-label="Categories">
+      <div class="sidebar__section">
+        <div class="sidebar__heading" data-i18n="nav_catalog">Каталог</div>
+        <button class="sidebar__cat" data-cat="" id="sidebar-all">
+          <div class="sidebar__cat-left">
+            <span class="sidebar__cat-icon">📋</span>
+            <span data-i18n="filter_all">Все</span>
+          </div>
+        </button>
+        <div id="sidebar-cats"><!-- rendered by JS --></div>
+      </div>
+    </aside>
+
+    <!-- MAIN CONTENT -->
+    <main class="catalog-main">
+      <div class="catalog-toolbar">
+        <h1 class="catalog-toolbar__title" id="catalog-title" data-i18n="nav_catalog">Каталог</h1>
+        <span class="catalog-toolbar__count" id="catalog-count"></span>
+        <select class="sort-select" id="sort-select" aria-label="Sort">
+          <option value="" data-i18n="sort_default">По умолчанию</option>
+          <option value="name_asc" data-i18n="sort_name_asc">По названию А–Я</option>
+          <option value="name_desc" data-i18n="sort_name_desc">По названию Я–А</option>
+          <option value="brand" data-i18n="sort_brand">По бренду</option>
+        </select>
+      </div>
+
+      <div class="catalog-filters" id="catalog-filters">
+        <button class="filter-chip active" data-filter="" data-i18n="filter_all">Все</button>
+        <button class="filter-chip" data-filter="isNew" data-i18n="filter_new">Новинки</button>
+        <button class="filter-chip" data-filter="isSale" data-i18n="filter_sale">Акции</button>
+      </div>
+
+      <div class="product-grid" id="product-grid">
+        <!-- rendered by JS -->
+      </div>
+
+      <div id="empty-state" class="hidden" style="text-align:center;padding:60px 20px;">
+        <div style="font-size:48px;margin-bottom:16px;">🔍</div>
+        <div style="font-size:18px;font-weight:700;margin-bottom:8px;">Ничего не найдено</div>
+        <div style="color:var(--color-text-muted);">Попробуйте изменить фильтры или поисковый запрос</div>
+      </div>
+    </main>
+  </div>
+</div>
+
+<!-- FOOTER -->
+<footer class="footer">
+  <div class="container">
+    <div class="footer__inner">
+      <div>
+        <div class="footer__brand"><span>⚕</span> MedHub</div>
+        <div class="footer__brand-desc">B2B маркетплейс медицинского оборудования.</div>
+        <div class="footer__contact">
+          <svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 13.5a19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 3.6 2.7h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l.85-.85a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+          <a href="tel:+74951234567">+7 (495) 123-45-67</a>
+        </div>
+      </div>
+      <div>
+        <div class="footer__col-title" data-i18n="footer_catalog">Каталог</div>
+        <a href="catalog.html?category=surgical-instruments" class="footer__link" data-i18n="cat_surgical">Хирургические инструменты</a>
+        <a href="catalog.html?category=endoscopy" class="footer__link" data-i18n="cat_endoscopy">Эндоскопия</a>
+        <a href="catalog.html?category=anesthesia" class="footer__link" data-i18n="cat_anesthesia">Анестезия и ИВЛ</a>
+        <a href="catalog.html?category=diagnostics" class="footer__link" data-i18n="cat_diagnostics">Диагностика</a>
+      </div>
+      <div>
+        <div class="footer__col-title">Покупателям</div>
+        <a href="cart.html" class="footer__link" data-i18n="btn_inquiry">Оставить заявку</a>
+        <a href="#" class="footer__link">Условия поставки</a>
+        <a href="#" class="footer__link">44-ФЗ / 223-ФЗ</a>
+      </div>
+      <div>
+        <div class="footer__col-title">Контакты</div>
+        <div class="footer__link">г. Москва</div>
+        <div class="footer__link">info@medhub.ru</div>
+        <div class="footer__link" data-i18n="footer_schedule">Пн–Пт: 9:00–18:00</div>
+      </div>
+    </div>
+    <div class="footer__bottom">
+      <span data-i18n="footer_company">© 2024 MedHub. Все права защищены.</span>
+    </div>
+  </div>
+</footer>
+
+<script src="assets/js/i18n.js"></script>
+<script src="assets/js/cart.js"></script>
+<script src="assets/js/data.js"></script>
+<script src="assets/js/main.js"></script>
+<script>
+(async function() {
+  await MedData.init();
+
+  const params = new URLSearchParams(location.search);
+  let activeCategory = params.get('category') || '';
+  let activeSubcategory = params.get('subcategory') || '';
+  let activeFilter = '';
+  let activeSort = '';
+  let searchQuery = params.get('search') || '';
+
+  // Pre-fill search
+  const searchInput = document.getElementById('catalog-search');
+  if (searchQuery) searchInput.value = searchQuery;
+
+  // Build sidebar
+  function buildSidebar() {
+    const cats = MedData.getCategories();
+    const allBtn = document.getElementById('sidebar-all');
+    allBtn.classList.toggle('active', !activeCategory);
+    allBtn.onclick = () => { activeCategory = ''; activeSubcategory = ''; updateURL(); render(); buildSidebar(); };
+
+    document.getElementById('sidebar-cats').innerHTML = cats.map(cat => {
+      const isOpen = cat.slug === activeCategory;
+      return `
+        <div class="sidebar__section">
+          <button class="sidebar__cat ${isOpen ? 'open active' : ''}" data-cat="${cat.slug}" onclick="toggleCat('${cat.slug}')">
+            <div class="sidebar__cat-left">
+              <span class="sidebar__cat-icon">${cat.icon}</span>
+              <span>${I18n.t(cat.nameKey)}</span>
+            </div>
+            <span class="sidebar__cat-arrow">›</span>
+          </button>
+          <div class="sidebar__subcats ${isOpen ? 'open' : ''}">
+            ${cat.subcategories.map(sub => `
+              <button class="sidebar__subcat ${sub.slug === activeSubcategory ? 'active' : ''}"
+                onclick="selectSubcat('${cat.slug}', '${sub.slug}')">
+                ${I18n.t(sub.nameKey)}
+              </button>
+            `).join('')}
+          </div>
+        </div>`;
+    }).join('');
+  }
+
+  window.toggleCat = function(catSlug) {
+    if (activeCategory === catSlug) {
+      activeCategory = '';
+      activeSubcategory = '';
+    } else {
+      activeCategory = catSlug;
+      activeSubcategory = '';
+    }
+    updateURL();
+    render();
+    buildSidebar();
+    updateBreadcrumb();
+  };
+
+  window.selectSubcat = function(catSlug, subSlug) {
+    activeCategory = catSlug;
+    activeSubcategory = subSlug;
+    updateURL();
+    render();
+    buildSidebar();
+    updateBreadcrumb();
+  };
+
+  function updateURL() {
+    const p = new URLSearchParams();
+    if (activeCategory) p.set('category', activeCategory);
+    if (activeSubcategory) p.set('subcategory', activeSubcategory);
+    if (searchQuery) p.set('search', searchQuery);
+    history.replaceState(null, '', `catalog.html${p.toString() ? '?' + p.toString() : ''}`);
+  }
+
+  function updateBreadcrumb() {
+    const catEl = document.getElementById('breadcrumb-cat');
+    const subEl = document.getElementById('breadcrumb-sub');
+    const subSep = document.getElementById('breadcrumb-sub-sep');
+    if (activeCategory) {
+      const cat = MedData.getCategoryById(activeCategory);
+      catEl.textContent = cat ? I18n.t(cat.nameKey) : activeCategory;
+      if (activeSubcategory) {
+        const sub = cat?.subcategories.find(s => s.slug === activeSubcategory);
+        subEl.textContent = sub ? I18n.t(sub.nameKey) : activeSubcategory;
+        subEl.style.display = '';
+        subSep.style.display = '';
+      } else {
+        subEl.style.display = 'none';
+        subSep.style.display = 'none';
+      }
+    } else {
+      catEl.textContent = I18n.t('nav_catalog');
+      subEl.style.display = 'none';
+      subSep.style.display = 'none';
+    }
+  }
+
+  function render() {
+    const filters = {};
+    if (activeCategory) filters.category = activeCategory;
+    if (activeSubcategory) filters.subcategory = activeSubcategory;
+    if (activeFilter === 'isNew') filters.isNew = true;
+    if (activeFilter === 'isSale') filters.isSale = true;
+    if (searchQuery) filters.search = searchQuery;
+    if (activeSort) filters.sort = activeSort;
+
+    // Update toolbar title
+    const titleEl = document.getElementById('catalog-title');
+    if (activeCategory) {
+      const cat = MedData.getCategoryById(activeCategory);
+      if (activeSubcategory && cat) {
+        const sub = cat.subcategories.find(s => s.slug === activeSubcategory);
+        titleEl.textContent = sub ? I18n.t(sub.nameKey) : I18n.t(cat.nameKey);
+      } else {
+        titleEl.textContent = cat ? I18n.t(cat.nameKey) : I18n.t('nav_catalog');
+      }
+    } else {
+      titleEl.textContent = I18n.t('nav_catalog');
+    }
+
+    const products = MedData.getProducts(filters);
+    const grid = document.getElementById('product-grid');
+    const empty = document.getElementById('empty-state');
+    const countEl = document.getElementById('catalog-count');
+
+    countEl.textContent = `${products.length} ${I18n.t('cart_items_count')}`;
+
+    if (products.length === 0) {
+      grid.innerHTML = '';
+      empty.classList.remove('hidden');
+    } else {
+      empty.classList.add('hidden');
+      grid.innerHTML = products.map(p => renderProductCard(p)).join('');
+    }
+  }
+
+  // Filter chips
+  document.getElementById('catalog-filters').addEventListener('click', e => {
+    const chip = e.target.closest('.filter-chip');
+    if (!chip) return;
+    document.querySelectorAll('.filter-chip').forEach(c => c.classList.remove('active'));
+    chip.classList.add('active');
+    activeFilter = chip.dataset.filter;
+    render();
+  });
+
+  // Sort
+  document.getElementById('sort-select').addEventListener('change', e => {
+    activeSort = e.target.value;
+    render();
+  });
+
+  // Search
+  searchInput.addEventListener('input', () => {
+    searchQuery = searchInput.value.trim();
+    updateURL();
+    render();
+  });
+
+  // Re-render on lang change
+  document.addEventListener('langChange', () => {
+    buildSidebar();
+    render();
+    updateBreadcrumb();
+  });
+
+  buildSidebar();
+  updateBreadcrumb();
+  render();
+})();
+</script>
+</body>
+</html>

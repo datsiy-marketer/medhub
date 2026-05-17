@@ -3,176 +3,62 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>MedHub Admin — Вход</title>
-  <!-- Не индексируем страницу входа -->
-  <meta name="robots" content="noindex, nofollow">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600&family=Golos+Text:wght@300;400;500&display=swap" rel="stylesheet">
-  <style>
-    :root {
-      --primary: #1a3a5c;
-      --accent: #c8a96e;
-      --danger: #c0392b;
-      --border: #e0dbd0;
-    }
-    * { box-sizing: border-box; margin: 0; padding: 0; }
-    body {
-      font-family: 'Golos Text', sans-serif;
-      background: linear-gradient(135deg, #0f2035 0%, #1a3a5c 100%);
-      min-height: 100vh;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      padding: 20px;
-    }
-    .login-box {
-      background: #fff;
-      border-radius: 8px;
-      padding: 40px 48px;
-      width: 100%;
-      max-width: 400px;
-      box-shadow: 0 20px 60px rgba(0,0,0,0.3);
-    }
-    .login-logo {
-      text-align: center;
-      margin-bottom: 32px;
-    }
-    .login-logo h1 {
-      font-family: 'Playfair Display', serif;
-      font-size: 28px;
-      color: var(--primary);
-    }
-    .login-logo p {
-      font-size: 12px;
-      color: #999;
-      text-transform: uppercase;
-      letter-spacing: 0.1em;
-      margin-top: 4px;
-    }
-    .form-group { margin-bottom: 18px; }
-    .form-group label {
-      display: block;
-      font-size: 12px;
-      font-weight: 500;
-      color: #666;
-      text-transform: uppercase;
-      letter-spacing: 0.06em;
-      margin-bottom: 7px;
-    }
-    .form-group input {
-      width: 100%;
-      padding: 11px 14px;
-      border: 1px solid var(--border);
-      border-radius: 4px;
-      font-family: 'Golos Text', sans-serif;
-      font-size: 15px;
-      outline: none;
-      transition: border-color 0.15s;
-    }
-    .form-group input:focus { border-color: var(--primary); }
-    .btn-login {
-      width: 100%;
-      padding: 12px;
-      background: var(--primary);
-      color: #fff;
-      border: none;
-      border-radius: 4px;
-      font-family: 'Golos Text', sans-serif;
-      font-size: 15px;
-      font-weight: 500;
-      cursor: pointer;
-      margin-top: 8px;
-      transition: background 0.2s;
-    }
-    .btn-login:hover { background: #2d5f8a; }
-    .error-msg {
-      background: #fef2f2;
-      border: 1px solid #fecaca;
-      color: var(--danger);
-      padding: 10px 14px;
-      border-radius: 4px;
-      font-size: 13px;
-      margin-top: 12px;
-      display: none;
-    }
-    .back-link {
-      display: block;
-      text-align: center;
-      margin-top: 20px;
-      font-size: 13px;
-      color: #999;
-      text-decoration: none;
-    }
-    .back-link:hover { color: var(--primary); }
-  </style>
+  <title>Вход — MedHub Admin</title>
+  <meta name="robots" content="noindex,nofollow">
+  <link rel="stylesheet" href="../assets/css/main.css">
 </head>
 <body>
-<div class="login-box">
-  <div class="login-logo">
-    <h1>MedHub</h1>
-    <p>Панель управления</p>
+
+<div class="admin-login-page">
+  <div class="admin-login-card">
+    <div class="admin-login-logo">
+      <div class="admin-login-logo__icon">⚕</div>
+      <div class="admin-login-logo__title">MedHub Admin</div>
+      <div class="admin-login-logo__sub">Административная панель</div>
+    </div>
+
+    <div id="error-msg" class="admin-login__error hidden">
+      Неверный пароль. Попробуйте ещё раз.
+    </div>
+
+    <form id="login-form">
+      <div class="form-group">
+        <label class="form-label">Email</label>
+        <input class="form-input" type="email" id="login-email" value="admin@medhub.ru" readonly style="background:var(--color-bg-dark);">
+      </div>
+      <div class="form-group">
+        <label class="form-label">Пароль</label>
+        <input class="form-input" type="password" id="login-password" placeholder="••••••••" autofocus required>
+        <div style="font-size:12px;color:var(--color-text-muted);margin-top:4px;">Пароль по умолчанию: <strong>admin123</strong></div>
+      </div>
+      <button type="submit" class="btn btn-primary" style="width:100%;margin-top:8px;">Войти</button>
+    </form>
+
+    <div style="text-align:center;margin-top:20px;">
+      <a href="../index.html" style="font-size:13px;color:var(--color-text-muted);">← Вернуться на сайт</a>
+    </div>
   </div>
-  <form id="login-form" onsubmit="doLogin(event)">
-    <div class="form-group">
-      <label for="login">Логин</label>
-      <input type="text" id="login" name="login" required
-        placeholder="admin" autocomplete="username">
-    </div>
-    <div class="form-group">
-      <label for="password">Пароль</label>
-      <input type="password" id="password" name="password" required
-        placeholder="••••••••" autocomplete="current-password">
-    </div>
-    <button type="submit" class="btn-login" id="login-btn">Войти</button>
-    <div class="error-msg" id="error-msg">Неверный логин или пароль</div>
-  </form>
-  <a href="/" class="back-link">← Вернуться на сайт</a>
 </div>
 
 <script>
-/**
- * MVP-авторизация: хэш пароля в JS.
- * Продакшн: заменить на Supabase Auth.
- *
- * Для смены пароля: в консоли выполни
- * crypto.subtle.digest('SHA-256', new TextEncoder().encode('НовыйПароль'))
- *   .then(b => console.log([...new Uint8Array(b)].map(x=>x.toString(16).padStart(2,'0')).join('')))
- *
- * Текущие данные: admin / MedHub2026!
- */
-const CREDENTIALS = {
-  admin: 'a8f5f167f44f4964e6c998dee827110c3ba14bc23a3ba53e23e35b83d3db7f28c' // MedHub2026!
-};
-
-async function sha256(str) {
-  const buf = await crypto.subtle.digest('SHA-256', new TextEncoder().encode(str));
-  return [...new Uint8Array(buf)].map(x => x.toString(16).padStart(2,'0')).join('');
-}
-
-async function doLogin(e) {
-  e.preventDefault();
-  const btn = document.getElementById('login-btn');
-  const errEl = document.getElementById('error-msg');
-  btn.disabled = true;
-  btn.textContent = 'Проверка...';
-  errEl.style.display = 'none';
-
-  const login = document.getElementById('login').value.trim();
-  const password = document.getElementById('password').value;
-  const hash = await sha256(password);
-
-  if (CREDENTIALS[login] === hash) {
-    // Сохраняем сессию (MVP: sessionStorage)
-    // Продакшн: JWT от Supabase
-    const session = { login, exp: Date.now() + 8 * 3600 * 1000 }; // 8 часов
-    sessionStorage.setItem('medhub_admin', JSON.stringify(session));
-    window.location.href = '/admin/dashboard.html';
-  } else {
-    errEl.style.display = 'block';
-    btn.disabled = false;
-    btn.textContent = 'Войти';
+  // Check if already logged in
+  if (sessionStorage.getItem('medhub_admin') === 'true') {
+    location.href = 'index.html';
   }
-}
+
+  document.getElementById('login-form').addEventListener('submit', function(e) {
+    e.preventDefault();
+    const pw = document.getElementById('login-password').value;
+    const stored = localStorage.getItem('medhub_admin_password') || 'admin123';
+    if (pw === stored) {
+      sessionStorage.setItem('medhub_admin', 'true');
+      location.href = 'index.html';
+    } else {
+      document.getElementById('error-msg').classList.remove('hidden');
+      document.getElementById('login-password').value = '';
+      document.getElementById('login-password').focus();
+    }
+  });
 </script>
 </body>
 </html>

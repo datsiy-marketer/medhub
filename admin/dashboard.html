@@ -752,6 +752,16 @@
               placeholder="https://script.google.com/macros/s/.../exec">
           </div>
           <div class="field-group">
+            <label class="field-label">URL баннера</label>
+            <input class="field-input" type="text" id="set-banner-url"
+              placeholder="https://example.com/banner.jpg">
+          </div>
+          <div class="field-group">
+            <label class="field-label">Текст баннера</label>
+            <input class="field-input" type="text" id="set-banner-text"
+              placeholder="Профессиональные инструменты Aesculap — поставки для клиник">
+          </div>
+          <div class="field-group">
             <label class="field-label">Пароль администратора (новый)</label>
             <input class="field-input" type="password" id="set-new-password"
               placeholder="Минимум 8 символов">
@@ -806,6 +816,7 @@ async function init() {
   renderInquiries();
   checkDuplicates();
   loadInquiriesCount();
+  loadAdminSettings();
 }
 
 /* ─── ЗАГРУЗКА ТОВАРОВ ─── */
@@ -1274,12 +1285,23 @@ function exportJSON() {
   a.click();
 }
 
+function loadAdminSettings() {
+  const saved = JSON.parse(localStorage.getItem('medhub_settings') || '{}');
+  document.getElementById('set-tg-token').value = saved.tg_token || '';
+  document.getElementById('set-tg-chat').value = saved.tg_chat || '';
+  document.getElementById('set-sheets-url').value = saved.sheets_url || '';
+  document.getElementById('set-banner-url').value = saved.banner_url || '';
+  document.getElementById('set-banner-text').value = saved.banner_text || '';
+}
+
 /* ─── СОХРАНЕНИЕ НАСТРОЕК ─── */
 function saveSettings() {
   localStorage.setItem('medhub_settings', JSON.stringify({
     tg_token: document.getElementById('set-tg-token').value,
     tg_chat: document.getElementById('set-tg-chat').value,
     sheets_url: document.getElementById('set-sheets-url').value,
+    banner_url: document.getElementById('set-banner-url').value,
+    banner_text: document.getElementById('set-banner-text').value,
   }));
   showToast('✅ Настройки сохранены', 'success');
 }

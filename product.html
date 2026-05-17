@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="ru" data-lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>MedHub — товар</title>
+  <meta name="description" content="Подробная страница товара MedHub. Уточнение цены, доставка и характеристики." />
+  <link rel="canonical" href="https://medhub.ru/product.html" />
+  <meta property="og:title" content="MedHub — товар" />
+  <meta property="og:description" content="Подробная страница товара MedHub." />
+  <meta property="og:image" content="https://medhub.ru/og-image.jpg" />
+  <meta property="og:type" content="product" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Golos+Text:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/assets/styles.css">
+</head>
+<body>
+  <header class="site-header">
+    <div class="page-shell site-nav">
+      <div class="site-logo">
+        <a href="/" class="site-logo__title">MedHub</a>
+        <span class="site-logo__tag">B2B маркетплейс</span>
+      </div>
+      <div class="site-actions">
+        <button class="header-btn outline cart-button" data-cart-toggle>
+          🛒 Корзина <span class="badge" id="cart-count">0</span>
+        </button>
+        <a class="header-btn primary" href="/admin/login.html">Войти</a>
+      </div>
+    </div>
+  </header>
+
+  <main class="page-shell">
+    <nav id="breadcrumbs" style="display:flex;gap:8px;padding:20px 0;color:var(--text-muted);font-size:14px"></nav>
+
+    <div class="product-detail">
+      <section class="product-gallery">
+        <div class="product-gallery__main" id="product-image">
+          <img data-main-image src="" alt="" />
+          <button class="btn outline" type="button" data-toggle-zoom style="position:absolute;right:18px;bottom:18px;">Увеличить</button>
+        </div>
+        <div class="product-gallery__thumbs" id="gallery-thumbs"></div>
+      </section>
+
+      <section class="product-info">
+        <article class="product-info-card" data-product-card>
+          <h1 data-product-title>Загрузка товара...</h1>
+          <div class="product-meta">
+            <div data-product-sku></div>
+            <div data-product-brand></div>
+            <div data-view-count>Просмотрено 0 раз</div>
+          </div>
+          <div class="product-price" data-product-price>Цена</div>
+          <div class="product-badges">
+            <span class="badge-pill" data-product-stock>Наличие</span>
+            <span class="badge-pill">Доставка уточняется при заявке</span>
+          </div>
+          <button class="btn primary" type="button" data-add-cart>Добавить в корзину</button>
+          <button class="btn outline" type="button" onclick="ProductPage.openInquiryModal()">Запросить цену / КП</button>
+          <button class="btn secondary" type="button" data-add-compare>Сравнить</button>
+        </article>
+
+        <article class="product-tabs">
+          <div class="tab-list">
+            <button class="tab-button active" data-tab-button data-tab-target="description">Описание</button>
+            <button class="tab-button" data-tab-button data-tab-target="specs">Характеристики</button>
+            <button class="tab-button" data-tab-button data-tab-target="delivery">Доставка и оплата</button>
+          </div>
+          <div class="tab-panel" data-tab-pane="description" id="description-tab"></div>
+          <div class="tab-panel hidden" data-tab-pane="specs">
+            <table class="spec-table" id="product-specs-body"></table>
+          </div>
+          <div class="tab-panel hidden" data-tab-pane="delivery">
+            <p>Медицинские товары поставляются B2B под заказ. Сроки и условия доставки уточняются после получения заявки. Оплата по счету, договор, отсрочка и самовывоз доступны для клиник.</p>
+          </div>
+        </article>
+      </section>
+    </div>
+
+    <section class="recently-viewed" id="recently-viewed-section">
+      <div class="section-heading"><h2>Недавно просмотренные</h2></div>
+      <div class="recently-viewed-list" id="recently-viewed-list"></div>
+    </section>
+  </main>
+
+  <aside class="cart-drawer" aria-label="Корзина">
+    <div class="cart-drawer__header">
+      <div>
+        <h2>Корзина</h2>
+        <p id="cart-total">0 ₽</p>
+      </div>
+      <button class="close-button" data-close-cart type="button">×</button>
+    </div>
+    <div class="cart-drawer__body" id="cart-items"></div>
+    <div class="cart-drawer__footer">
+      <button class="btn primary" type="button" data-submit-cart>Оставить заявку на всё</button>
+      <button class="btn outline" type="button" data-clear-cart>Очистить корзину</button>
+    </div>
+  </aside>
+
+  <div class="drawer modal" id="zoom-modal">
+    <div class="modal__panel">
+      <div class="modal__header">
+        <h3>Увеличить изображение</h3>
+        <button class="close-button" type="button" data-zoom-close>×</button>
+      </div>
+      <div class="modal__body" style="padding:0">
+        <img src="" alt="" id="zoom-image" style="width:100%;display:block;" />
+      </div>
+    </div>
+  </div>
+
+  <div class="drawer modal" id="product-inquiry-modal">
+    <div class="modal__panel">
+      <div class="modal__header">
+        <h3>Запросить цену / КП</h3>
+        <button class="close-button" type="button" data-close-inquiry>×</button>
+      </div>
+      <div class="modal__body">
+        <form data-product-inquiry-form id="product-inquiry-form">
+          <input type="hidden" name="product" value="" />
+          <div class="filter-group"><label>Имя</label><input name="name" required /></div>
+          <div class="filter-group"><label>Телефон</label><input name="phone" required /></div>
+          <div class="filter-group"><label>Email</label><input name="email" type="email" required /></div>
+          <div class="filter-group"><label>Компания</label><input name="company" /></div>
+          <div class="filter-group"><label>Комментарий</label><textarea name="message"></textarea></div>
+          <div class="modal__footer">
+            <button class="btn outline" type="button" data-close-inquiry>Отмена</button>
+            <button class="btn primary" type="submit">Отправить заявку</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+
+  <div class="drawer modal" id="cart-inquiry-modal">
+    <div class="modal__panel">
+      <div class="modal__header">
+        <h3>Заявка по корзине</h3>
+        <button class="close-button" type="button" data-close-cart-inquiry>×</button>
+      </div>
+      <div class="modal__body">
+        <div id="cart-inquiry-items"></div>
+        <form data-cart-inquiry-form id="cart-inquiry-form">
+          <div class="filter-group"><label>Имя</label><input name="name" required /></div>
+          <div class="filter-group"><label>Телефон</label><input name="phone" required /></div>
+          <div class="filter-group"><label>Email</label><input name="email" type="email" required /></div>
+          <div class="filter-group"><label>Компания</label><input name="company" /></div>
+          <div class="filter-group"><label>Комментарий</label><textarea name="message"></textarea></div>
+          <div class="modal__footer">
+            <button class="btn outline" type="button" data-close-cart-inquiry>Отмена</button>
+            <button class="btn primary" type="submit">Отправить заявку</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+
+  <script src="/assets/common.js"></script>
+  <script src="/assets/product.js"></script>
+</body>
+</html>

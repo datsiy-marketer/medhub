@@ -90,6 +90,28 @@
         </div>
       </div>
 
+      <!-- Placeholder images manager -->
+      <div class="admin-card">
+        <div class="admin-card__header">
+          <div class="admin-card__title">Изображения-заглушки товаров</div>
+        </div>
+        <div style="padding:24px;">
+          <div style="font-size:13px;color:var(--color-text-muted);margin-bottom:16px;">
+            Укажите URL изображений для каждой категории. Эти изображения будут показаны у товаров без фото.
+            После загрузки реальных фотографий замените их через управление товарами.
+          </div>
+          <div id="placeholder-fields" style="display:grid;gap:10px;"></div>
+          <div style="display:flex;gap:10px;flex-wrap:wrap;margin-top:16px;">
+            <button class="btn btn-primary btn-sm" onclick="savePlaceholders()">Сохранить изображения</button>
+            <button class="btn btn-ghost btn-sm" onclick="resetPlaceholders()">Сбросить по умолчанию</button>
+          </div>
+          <div style="margin-top:20px;border-top:1px solid var(--color-border);padding-top:16px;">
+            <div style="font-size:12px;font-weight:700;color:var(--color-text-muted);text-transform:uppercase;letter-spacing:0.5px;margin-bottom:12px;">Предпросмотр</div>
+            <div id="placeholder-preview" style="display:grid;grid-template-columns:repeat(auto-fill,minmax(120px,1fr));gap:10px;"></div>
+          </div>
+        </div>
+      </div>
+
       <!-- Password -->
       <div class="admin-card">
         <div class="admin-card__header">
@@ -129,6 +151,80 @@
 <script src="../assets/js/data.js"></script>
 <script>
   if (sessionStorage.getItem('medhub_admin') !== 'true') location.href = 'login.html';
+
+  // Placeholder image labels (key → human name)
+  const PLACEHOLDER_LABELS = {
+    'surgical':      '✂️ Хирургические инструменты',
+    'surgical2':     '✂️ Хирургические инструменты 2',
+    'surgical3':     '🤖 Роботическая хирургия',
+    'endoscopy':     '🔬 Эндоскопия',
+    'anesthesia':    '💨 Анестезия',
+    'ventilator':    '💨 Аппарат ИВЛ',
+    'ultrasound':    '🩻 УЗИ',
+    'monitor':       '📡 Монитор пациента',
+    'ortho':         '🦴 Ортопедия',
+    'suture':        '🧵 Шовный материал',
+    'sterilization': '♻️ Стерилизация',
+    'lab':           '🧪 Лаборатория',
+    'default':       '📦 По умолчанию'
+  };
+
+  function buildPlaceholderFields() {
+    const current = MedData.getPlaceholderConfig();
+    const fields = document.getElementById('placeholder-fields');
+    fields.innerHTML = Object.entries(PLACEHOLDER_LABELS).map(([key, label]) => `
+      <div style="display:grid;grid-template-columns:180px 1fr 44px;gap:8px;align-items:center;">
+        <div style="font-size:12px;font-weight:600;color:var(--color-text);">${label}</div>
+        <input class="form-input" id="ph-${key}" value="${current[key] || ''}" placeholder="https://..." style="font-size:12px;">
+        <img id="ph-prev-${key}" src="${current[key] || ''}" style="width:40px;height:40px;object-fit:cover;border-radius:6px;border:1px solid var(--color-border);" onerror="this.style.opacity='0.2'">
+      </div>
+    `).join('');
+
+    // Live preview update on input
+    Object.keys(PLACEHOLDER_LABELS).forEach(key => {
+      const input = document.getElementById('ph-' + key);
+      const prev = document.getElementById('ph-prev-' + key);
+      if (input && prev) {
+        input.addEventListener('input', () => { prev.src = input.value; prev.style.opacity = '1'; });
+      }
+    });
+
+    renderPlaceholderGrid(current);
+  }
+
+  function renderPlaceholderGrid(config) {
+    const preview = document.getElementById('placeholder-preview');
+    preview.innerHTML = Object.entries(PLACEHOLDER_LABELS).map(([key, label]) => `
+      <div style="text-align:center;">
+        <img src="${config[key] || ''}" style="width:100%;aspect-ratio:4/3;object-fit:cover;border-radius:8px;border:1px solid var(--color-border);background:var(--color-bg-light);" onerror="this.style.opacity='0.3'" alt="${label}">
+        <div style="font-size:10px;color:var(--color-text-muted);margin-top:4px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;">${label}</div>
+      </div>
+    `).join('');
+  }
+
+  window.savePlaceholders = function() {
+    const map = {};
+    Object.keys(PLACEHOLDER_LABELS).forEach(key => {
+      const val = (document.getElementById('ph-' + key)?.value || '').trim();
+      if (val) map[key] = val;
+    });
+    MedData.savePlaceholderImages(map);
+    renderPlaceholderGrid(MedData.getPlaceholderConfig());
+    toast('Изображения сохранены');
+  };
+
+  window.resetPlaceholders = function() {
+    if (!confirm('Сбросить изображения к стандартным?')) return;
+    localStorage.removeItem('medhub_placeholder_images');
+    buildPlaceholderFields();
+    toast('Сброшено');
+  };
+
+  // Init placeholder manager
+  (async function() {
+    await MedData.init();
+    buildPlaceholderFields();
+  })();
 
   // Load saved settings
   document.getElementById('promo-text').value = localStorage.getItem('medhub_promo') || '';

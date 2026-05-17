@@ -8,12 +8,8 @@
     "sku": "BC253R",
     "nameKey": "prod_aes001_name",
     "descriptionKey": "prod_aes001_desc",
-    "image": "https://placehold.co/600x400/f8fafc/64748b?text=Aesculap+BC253R",
-    "images": [
-      "https://placehold.co/600x400/f8fafc/64748b?text=Aesculap+BC253R",
-      "https://placehold.co/600x400/f1f5f9/64748b?text=Side+View",
-      "https://placehold.co/600x400/e2e8f0/64748b?text=Detail"
-    ],
+    "image": "img:surgical",
+    "images": ["img:surgical", "img:surgical2"],
     "specs": {
       "Длина": "140 мм",
       "Материал": "Нержавеющая сталь",
@@ -21,6 +17,9 @@
       "Страна": "Германия",
       "Стандарт": "ISO 7153-1"
     },
+    "price": 2850,
+    "currency": "RUB",
+    "unit": "шт",
     "tags": ["хирургия", "зажим", "нержавейка"],
     "isNew": false,
     "isSale": false,
@@ -36,11 +35,8 @@
     "sku": "FE405R",
     "nameKey": "prod_aes002_name",
     "descriptionKey": "prod_aes002_desc",
-    "image": "https://placehold.co/600x400/f8fafc/64748b?text=Aesculap+Scissors",
-    "images": [
-      "https://placehold.co/600x400/f8fafc/64748b?text=Aesculap+FE405R",
-      "https://placehold.co/600x400/f1f5f9/64748b?text=Side+View"
-    ],
+    "image": "img:surgical",
+    "images": ["img:surgical"],
     "specs": {
       "Длина": "145 мм",
       "Тип": "Прямые, острые",
@@ -48,6 +44,9 @@
       "Стерилизация": "Автоклав 134°C",
       "Страна": "Германия"
     },
+    "price": 4200,
+    "currency": "RUB",
+    "unit": "шт",
     "tags": ["ножницы", "хирургия"],
     "isNew": true,
     "isSale": false,
@@ -63,10 +62,8 @@
     "sku": "BD522R",
     "nameKey": "prod_aes003_name",
     "descriptionKey": "prod_aes003_desc",
-    "image": "https://placehold.co/600x400/f8fafc/64748b?text=Aesculap+Forceps",
-    "images": [
-      "https://placehold.co/600x400/f8fafc/64748b?text=Aesculap+BD522R"
-    ],
+    "image": "img:surgical2",
+    "images": ["img:surgical2"],
     "specs": {
       "Длина": "160 мм",
       "Тип": "Хирургический пинцет",
@@ -74,9 +71,96 @@
       "Материал": "Нержавеющая сталь",
       "Страна": "Германия"
     },
+    "price": 1890,
+    "currency": "RUB",
+    "unit": "шт",
     "tags": ["пинцет", "хирургия"],
     "isNew": false,
     "isSale": true,
+    "isFeatured": false,
+    "inStock": true
+  },
+  {
+    "id": "aes-004",
+    "slug": "aesculap-monosyn-5-0-c0022093",
+    "category": "consumables",
+    "subcategory": "sutures",
+    "brand": "Aesculap",
+    "sku": "C0022093",
+    "nameKey": "prod_aes004_name",
+    "descriptionKey": "prod_aes004_desc",
+    "image": "img:suture",
+    "images": ["img:suture"],
+    "specs": {
+      "Тип": "Синтетический рассасывающийся",
+      "Размер": "5/0",
+      "Длина нити": "70 см",
+      "Игла": "3/8 колющая, 18 мм",
+      "Упаковка": "36 шт",
+      "Страна": "Германия"
+    },
+    "price": 12200,
+    "currency": "RUB",
+    "unit": "уп. 36 шт",
+    "tags": ["шовный материал", "рассасывающийся", "монофиламент"],
+    "isNew": false,
+    "isSale": false,
+    "isFeatured": true,
+    "inStock": true
+  },
+  {
+    "id": "aes-005",
+    "slug": "aesculap-monosyn-6-0-c0022002",
+    "category": "consumables",
+    "subcategory": "sutures",
+    "brand": "Aesculap",
+    "sku": "C0022002",
+    "nameKey": "prod_aes005_name",
+    "descriptionKey": "prod_aes005_desc",
+    "image": "img:suture",
+    "images": ["img:suture"],
+    "specs": {
+      "Тип": "Синтетический рассасывающийся",
+      "Размер": "6/0",
+      "Длина нити": "70 см",
+      "Игла": "1/2 колющая, 17 мм",
+      "Упаковка": "36 шт",
+      "Страна": "Германия"
+    },
+    "price": 13300,
+    "currency": "RUB",
+    "unit": "уп. 36 шт",
+    "tags": ["шовный материал", "рассасывающийся", "монофиламент"],
+    "isNew": false,
+    "isSale": true,
+    "isFeatured": false,
+    "inStock": true
+  },
+  {
+    "id": "aes-006",
+    "slug": "aesculap-monosyn-5-0-trocar-c0022343",
+    "category": "consumables",
+    "subcategory": "sutures",
+    "brand": "Aesculap",
+    "sku": "C0022343",
+    "nameKey": "prod_aes006_name",
+    "descriptionKey": "prod_aes006_desc",
+    "image": "img:suture",
+    "images": ["img:suture"],
+    "specs": {
+      "Тип": "Синтетический рассасывающийся",
+      "Размер": "5/0",
+      "Длина нити": "70 см",
+      "Игла": "3/8 колющая, троакар 18 мм",
+      "Упаковка": "36 шт",
+      "Страна": "Германия"
+    },
+    "price": 16570,
+    "currency": "RUB",
+    "unit": "уп. 36 шт",
+    "tags": ["шовный материал", "рассасывающийся", "троакар"],
+    "isNew": true,
+    "isSale": false,
     "isFeatured": false,
     "inStock": true
   },
@@ -89,11 +173,8 @@
     "sku": "26003BA",
     "nameKey": "prod_ks001_name",
     "descriptionKey": "prod_ks001_desc",
-    "image": "https://placehold.co/600x400/f8fafc/64748b?text=Karl+Storz+Endoscope",
-    "images": [
-      "https://placehold.co/600x400/f8fafc/64748b?text=Karl+Storz+26003BA",
-      "https://placehold.co/600x400/f1f5f9/64748b?text=Tip+Detail"
-    ],
+    "image": "img:endoscopy",
+    "images": ["img:endoscopy"],
     "specs": {
       "Угол зрения": "0°",
       "Диаметр": "4 мм",
@@ -101,6 +182,9 @@
       "Освещение": "Холодный свет",
       "Страна": "Германия"
     },
+    "price": 145000,
+    "currency": "RUB",
+    "unit": "шт",
     "tags": ["эндоскопия", "лапароскопия", "оптика"],
     "isNew": false,
     "isSale": false,
@@ -116,17 +200,17 @@
     "sku": "26173BL",
     "nameKey": "prod_ks002_name",
     "descriptionKey": "prod_ks002_desc",
-    "image": "https://placehold.co/600x400/f8fafc/64748b?text=Karl+Storz+Laparoscope",
-    "images": [
-      "https://placehold.co/600x400/f8fafc/64748b?text=Karl+Storz+26173BL"
-    ],
+    "image": "img:endoscopy",
+    "images": ["img:endoscopy"],
     "specs": {
       "Угол зрения": "30°",
       "Диаметр": "10 мм",
       "Длина": "330 мм",
-      "Покрытие": "ENDOFLATOR",
       "Страна": "Германия"
     },
+    "price": 189000,
+    "currency": "RUB",
+    "unit": "шт",
     "tags": ["лапароскопия", "эндоскопия"],
     "isNew": true,
     "isSale": false,
@@ -142,11 +226,8 @@
     "sku": "PRIMUS-IE",
     "nameKey": "prod_dra001_name",
     "descriptionKey": "prod_dra001_desc",
-    "image": "https://placehold.co/600x400/f8fafc/64748b?text=Dräger+Primus",
-    "images": [
-      "https://placehold.co/600x400/f8fafc/64748b?text=Dräger+Primus+IE",
-      "https://placehold.co/600x400/f1f5f9/64748b?text=Display+Panel"
-    ],
+    "image": "img:anesthesia",
+    "images": ["img:anesthesia"],
     "specs": {
       "Тип": "Наркозный аппарат",
       "Вентиляция": "VCV, PCV, SIMV, PSV",
@@ -154,6 +235,9 @@
       "Газы": "O₂, Air, N₂O",
       "Страна": "Германия"
     },
+    "price": null,
+    "currency": "RUB",
+    "unit": "шт",
     "tags": ["анестезия", "наркоз", "вентиляция"],
     "isNew": false,
     "isSale": false,
@@ -169,17 +253,17 @@
     "sku": "EVITA-V500",
     "nameKey": "prod_dra002_name",
     "descriptionKey": "prod_dra002_desc",
-    "image": "https://placehold.co/600x400/f8fafc/64748b?text=Dräger+Evita+V500",
-    "images": [
-      "https://placehold.co/600x400/f8fafc/64748b?text=Dräger+Evita+V500"
-    ],
+    "image": "img:ventilator",
+    "images": ["img:ventilator"],
     "specs": {
       "Тип": "Аппарат ИВЛ",
       "Режимы": "VC-CMV, PC-CMV, BIPAP, APRV",
       "Пациенты": "Взрослые, педиатрия",
-      "Дисплей": "15\" WUXGA",
       "Страна": "Германия"
     },
+    "price": null,
+    "currency": "RUB",
+    "unit": "шт",
     "tags": ["ИВЛ", "вентиляция", "реанимация"],
     "isNew": false,
     "isSale": false,
@@ -195,18 +279,17 @@
     "sku": "EPIQ-ELITE",
     "nameKey": "prod_phi001_name",
     "descriptionKey": "prod_phi001_desc",
-    "image": "https://placehold.co/600x400/f8fafc/64748b?text=Philips+EPIQ+Elite",
-    "images": [
-      "https://placehold.co/600x400/f8fafc/64748b?text=Philips+EPIQ+Elite",
-      "https://placehold.co/600x400/f1f5f9/64748b?text=Screen+View"
-    ],
+    "image": "img:ultrasound",
+    "images": ["img:ultrasound"],
     "specs": {
       "Тип": "УЗИ аппарат экспертного класса",
       "Дисплей": "23\" 4K",
-      "Датчики": "Совместим с 30+ датчиками",
       "Технология": "nSIGHT",
       "Страна": "Нидерланды"
     },
+    "price": null,
+    "currency": "RUB",
+    "unit": "шт",
     "tags": ["УЗИ", "ультразвук", "диагностика"],
     "isNew": false,
     "isSale": false,
@@ -222,10 +305,8 @@
     "sku": "MX800",
     "nameKey": "prod_phi002_name",
     "descriptionKey": "prod_phi002_desc",
-    "image": "https://placehold.co/600x400/f8fafc/64748b?text=Philips+IntelliVue+MX800",
-    "images": [
-      "https://placehold.co/600x400/f8fafc/64748b?text=Philips+IntelliVue+MX800"
-    ],
+    "image": "img:monitor",
+    "images": ["img:monitor"],
     "specs": {
       "Тип": "Монитор пациента",
       "Дисплей": "15\" TFT",
@@ -233,6 +314,9 @@
       "Память": "72 часа трендов",
       "Страна": "Нидерланды"
     },
+    "price": 780000,
+    "currency": "RUB",
+    "unit": "шт",
     "tags": ["мониторинг", "ЭКГ", "SpO2", "реанимация"],
     "isNew": false,
     "isSale": true,
@@ -248,10 +332,8 @@
     "sku": "SYS7-DRILL",
     "nameKey": "prod_str001_name",
     "descriptionKey": "prod_str001_desc",
-    "image": "https://placehold.co/600x400/f8fafc/64748b?text=Stryker+System+7",
-    "images": [
-      "https://placehold.co/600x400/f8fafc/64748b?text=Stryker+System+7+Drill"
-    ],
+    "image": "img:ortho",
+    "images": ["img:ortho"],
     "specs": {
       "Тип": "Хирургическая дрель",
       "Скорость": "до 1500 об/мин",
@@ -259,6 +341,9 @@
       "Вес": "0.85 кг",
       "Страна": "США"
     },
+    "price": 320000,
+    "currency": "RUB",
+    "unit": "шт",
     "tags": ["ортопедия", "хирургия", "дрель"],
     "isNew": false,
     "isSale": false,
@@ -274,18 +359,17 @@
     "sku": "TRIATHLON-TKA",
     "nameKey": "prod_str002_name",
     "descriptionKey": "prod_str002_desc",
-    "image": "https://placehold.co/600x400/f8fafc/64748b?text=Stryker+Triathlon",
-    "images": [
-      "https://placehold.co/600x400/f8fafc/64748b?text=Stryker+Triathlon+Knee"
-    ],
+    "image": "img:ortho",
+    "images": ["img:ortho"],
     "specs": {
       "Тип": "Система эндопротезирования коленного сустава",
       "Материал": "Co-Cr-Mo, Ti-6Al-4V",
-      "Размеры": "1-9 (левый и правый)",
-      "Полиэтилен": "X3 poly",
       "Страна": "США"
     },
-    "tags": ["ортопедия", "эндопротез", "колено", "имплант"],
+    "price": null,
+    "currency": "RUB",
+    "unit": "шт",
+    "tags": ["ортопедия", "эндопротез", "колено"],
     "isNew": false,
     "isSale": false,
     "isFeatured": false,
@@ -300,18 +384,18 @@
     "sku": "W9981",
     "nameKey": "prod_jnj001_name",
     "descriptionKey": "prod_jnj001_desc",
-    "image": "https://placehold.co/600x400/f8fafc/64748b?text=Ethicon+Vicryl",
-    "images": [
-      "https://placehold.co/600x400/f8fafc/64748b?text=Ethicon+Vicryl+2-0"
-    ],
+    "image": "img:suture",
+    "images": ["img:suture"],
     "specs": {
       "Тип": "Рассасывающийся шовный материал",
-      "Размер": "2/0 (3,5 метрическая)",
+      "Размер": "2/0",
       "Игла": "CT-1, 40 мм, колющая",
-      "Длина нити": "70 см",
       "Страна": "США"
     },
-    "tags": ["шовный материал", "рассасывающийся", "хирургия"],
+    "price": 12500,
+    "currency": "RUB",
+    "unit": "уп. 36 шт",
+    "tags": ["шовный материал", "рассасывающийся"],
     "isNew": false,
     "isSale": true,
     "isFeatured": false,
@@ -326,18 +410,18 @@
     "sku": "8698H",
     "nameKey": "prod_jnj002_name",
     "descriptionKey": "prod_jnj002_desc",
-    "image": "https://placehold.co/600x400/f8fafc/64748b?text=Ethicon+Prolene",
-    "images": [
-      "https://placehold.co/600x400/f8fafc/64748b?text=Ethicon+Prolene+3-0"
-    ],
+    "image": "img:suture",
+    "images": ["img:suture"],
     "specs": {
-      "Тип": "Нерассасывающийся шовный материал",
-      "Размер": "3/0 (2 метрическая)",
+      "Тип": "Нерассасывающийся монофиламент",
+      "Размер": "3/0",
       "Игла": "SH, 26 мм",
-      "Длина нити": "75 см",
       "Страна": "США"
     },
-    "tags": ["шовный материал", "нерассасывающийся", "сосудистая хирургия"],
+    "price": 9800,
+    "currency": "RUB",
+    "unit": "уп. 36 шт",
+    "tags": ["шовный материал", "нерассасывающийся"],
     "isNew": false,
     "isSale": false,
     "isFeatured": false,
@@ -352,18 +436,18 @@
     "sku": "HUGO-RAS",
     "nameKey": "prod_med001_name",
     "descriptionKey": "prod_med001_desc",
-    "image": "https://placehold.co/600x400/f8fafc/64748b?text=Medtronic+Hugo",
-    "images": [
-      "https://placehold.co/600x400/f8fafc/64748b?text=Medtronic+Hugo+RAS"
-    ],
+    "image": "img:surgical3",
+    "images": ["img:surgical3"],
     "specs": {
       "Тип": "Роботизированная хирургическая система",
       "Руки": "4 инструментальных руки",
-      "Доступы": "Лапароскопический, торакоскопический",
       "Визуализация": "3D HD 10x",
       "Страна": "США"
     },
-    "tags": ["роботическая хирургия", "лапароскопия", "hi-tech"],
+    "price": null,
+    "currency": "RUB",
+    "unit": "шт",
+    "tags": ["роботическая хирургия", "лапароскопия"],
     "isNew": true,
     "isSale": false,
     "isFeatured": true,
@@ -378,10 +462,8 @@
     "sku": "VPRO-MAXX",
     "nameKey": "prod_ste001_name",
     "descriptionKey": "prod_ste001_desc",
-    "image": "https://placehold.co/600x400/f8fafc/64748b?text=STERIS+V-PRO",
-    "images": [
-      "https://placehold.co/600x400/f8fafc/64748b?text=STERIS+V-PRO+maX+"
-    ],
+    "image": "img:sterilization",
+    "images": ["img:sterilization"],
     "specs": {
       "Тип": "Стерилизатор низкотемпературный",
       "Метод": "Перекись водорода",
@@ -389,7 +471,10 @@
       "Цикл": "28-55 минут",
       "Страна": "США"
     },
-    "tags": ["стерилизация", "автоклав", "перекись"],
+    "price": null,
+    "currency": "RUB",
+    "unit": "шт",
+    "tags": ["стерилизация", "автоклав"],
     "isNew": false,
     "isSale": false,
     "isFeatured": false,
@@ -404,17 +489,16 @@
     "sku": "DXH-900",
     "nameKey": "prod_bec001_name",
     "descriptionKey": "prod_bec001_desc",
-    "image": "https://placehold.co/600x400/f8fafc/64748b?text=Beckman+DxH+900",
-    "images": [
-      "https://placehold.co/600x400/f8fafc/64748b?text=Beckman+Coulter+DxH+900"
-    ],
+    "image": "img:lab",
+    "images": ["img:lab"],
     "specs": {
       "Тип": "Гематологический анализатор",
       "Производительность": "до 100 проб/час",
-      "Параметры": "5-part дифференцировка",
-      "Объём пробы": "1,5 мл",
       "Страна": "США"
     },
+    "price": null,
+    "currency": "RUB",
+    "unit": "шт",
     "tags": ["гематология", "анализатор", "лаборатория"],
     "isNew": false,
     "isSale": false,
@@ -430,18 +514,18 @@
     "sku": "LOGIQ-E10",
     "nameKey": "prod_ge001_name",
     "descriptionKey": "prod_ge001_desc",
-    "image": "https://placehold.co/600x400/f8fafc/64748b?text=GE+LOGIQ+E10",
-    "images": [
-      "https://placehold.co/600x400/f8fafc/64748b?text=GE+LOGIQ+E10"
-    ],
+    "image": "img:ultrasound",
+    "images": ["img:ultrasound"],
     "specs": {
       "Тип": "УЗИ аппарат экспертного класса",
       "Технология": "cSound Architecture",
-      "ИИ": "Встроенный AI-анализ",
       "Дисплей": "21.5\" Full HD",
       "Страна": "США"
     },
-    "tags": ["УЗИ", "диагностика", "ультразвук", "AI"],
+    "price": null,
+    "currency": "RUB",
+    "unit": "шт",
+    "tags": ["УЗИ", "диагностика", "AI"],
     "isNew": true,
     "isSale": false,
     "isFeatured": true,
@@ -456,18 +540,17 @@
     "sku": "PERSONA-TKA",
     "nameKey": "prod_zim001_name",
     "descriptionKey": "prod_zim001_desc",
-    "image": "https://placehold.co/600x400/f8fafc/64748b?text=Zimmer+Persona",
-    "images": [
-      "https://placehold.co/600x400/f8fafc/64748b?text=Zimmer+Biomet+Persona"
-    ],
+    "image": "img:ortho",
+    "images": ["img:ortho"],
     "specs": {
       "Тип": "Система тотального эндопротезирования колена",
       "Материал": "Кобальт-хром, титан",
-      "Размеры": "A1-F9",
-      "Технология": "RP™ Tibial Plate",
       "Страна": "США"
     },
-    "tags": ["ортопедия", "эндопротез", "колено", "имплант"],
+    "price": null,
+    "currency": "RUB",
+    "unit": "шт",
+    "tags": ["ортопедия", "эндопротез", "колено"],
     "isNew": false,
     "isSale": false,
     "isFeatured": false,

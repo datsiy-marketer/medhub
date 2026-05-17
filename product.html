@@ -94,6 +94,13 @@
 <script src="assets/js/data.js"></script>
 <script src="assets/js/main.js"></script>
 <script>
+// Make formatPrice available in template literals before renderProduct runs
+window._formatPrice = window.formatPrice || function(p) {
+  if (!p) return null;
+  return new Intl.NumberFormat('ru-RU').format(p) + ' ₽';
+};
+</script>
+<script>
 (async function() {
   await MedData.init();
 
@@ -191,6 +198,23 @@
           </div>
           <div class="product-info__badges">${badges.join('')}</div>
           <p class="product-info__desc">${desc}</p>
+
+          <!-- Price block -->
+          <div style="margin-bottom:20px;padding:16px;background:var(--color-bg-light);border-radius:10px;border:1px solid var(--color-border);display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:12px;">
+            <div>
+              ${product.price
+                ? `<div style="font-size:26px;font-weight:900;color:var(--color-brand);letter-spacing:-0.5px;">${window._formatPrice(product.price)}</div>
+                   <div style="font-size:12px;color:var(--color-text-muted);margin-top:2px;">${product.unit ? '/ ' + product.unit : ''} · Оптовая цена. НДС включён.</div>`
+                : `<div style="font-size:18px;font-weight:700;color:var(--color-text-muted);">По запросу</div>
+                   <div style="font-size:12px;color:var(--color-text-light);margin-top:2px;">Цена зависит от комплектации и объёма</div>`
+              }
+            </div>
+            <div style="display:flex;align-items:center;gap:6px;">
+              <span style="width:8px;height:8px;border-radius:50%;background:var(--color-green);display:inline-block;"></span>
+              <span style="font-size:13px;font-weight:600;color:var(--color-green-text);">${I18n.t('label_in_stock')}</span>
+            </div>
+          </div>
+
           <div class="product-info__actions">
             <button class="btn btn-primary btn-lg" onclick="Cart.add(${JSON.stringify(product).replace(/"/g, '&quot;')}); showToast(I18n.t('btn_add_cart'))" id="btn-cart">${I18n.t('btn_add_cart')}</button>
             <button class="btn btn-outline btn-lg" onclick="openInquiryModal(${JSON.stringify(product).replace(/"/g, '&quot;')})" id="btn-inquiry">${I18n.t('btn_request_product')}</button>

@@ -644,6 +644,24 @@ input, textarea, select { font-family: var(--font); }
   color: var(--color-text-light);
   margin-top: 2px;
 }
+.product-card__price {
+  font-size: 16px;
+  font-weight: 800;
+  color: var(--color-brand);
+  margin-top: 6px;
+  letter-spacing: -0.3px;
+}
+.product-card__price--request {
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--color-text-muted);
+}
+.product-card__unit {
+  font-size: 10px;
+  font-weight: 500;
+  color: var(--color-text-muted);
+  margin-left: 3px;
+}
 .product-card__footer {
   padding: 10px 12px;
   border-top: 1px solid var(--color-border);
@@ -1068,6 +1086,7 @@ input, textarea, select { font-family: var(--font); }
 .toast--success { background: #166534; }
 .toast--error { background: var(--color-danger); }
 @keyframes toastIn { from { transform: translateX(100%); opacity: 0; } to { transform: translateX(0); opacity: 1; } }
+@keyframes spin { to { transform: rotate(360deg); } }
 
 /* ============================
    RESPONSIVE

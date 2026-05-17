@@ -243,6 +243,33 @@
       </form>
     </div>
 
+    <!-- INFINITE SCROLL FEED -->
+    <div class="section-block" id="section-all-feed">
+      <div class="section-block__header">
+        <div>
+          <div class="section-block__title">Все товары</div>
+          <div class="section-block__sub" id="feed-count-label"></div>
+        </div>
+        <select id="feed-sort" class="sort-select" style="font-size:12px;">
+          <option value="">По умолчанию</option>
+          <option value="name_asc">Название А–Я</option>
+          <option value="price_asc">Цена ↑</option>
+          <option value="price_desc">Цена ↓</option>
+          <option value="brand">По бренду</option>
+        </select>
+      </div>
+      <div class="product-grid" id="feed-grid" style="grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));"></div>
+      <!-- Sentinel for IntersectionObserver -->
+      <div id="feed-sentinel" style="height:1px;margin-top:16px;"></div>
+      <div id="feed-loading" style="display:none;text-align:center;padding:20px 0;color:var(--color-text-muted);font-size:13px;">
+        <span style="display:inline-flex;align-items:center;gap:8px;">
+          <span style="width:16px;height:16px;border:2px solid var(--color-border);border-top-color:var(--color-brand);border-radius:50%;animation:spin 0.7s linear infinite;display:inline-block;"></span>
+          Загрузка...
+        </span>
+      </div>
+      <div id="feed-end" style="display:none;text-align:center;padding:20px 0;color:var(--color-text-light);font-size:13px;">Все товары загружены</div>
+    </div>
+
   </main><!-- /home-center -->
 
   <!-- =====================
@@ -490,6 +517,74 @@ window.applySpecialty = function(key) {
     setTimeout(() => result.innerHTML = '', 5000);
   });
 
+  // ── INFINITE SCROLL FEED ──────────────────────────────────────
+  const FEED_PAGE_SIZE = 8;
+  let feedPage = 0;
+  let feedAllProducts = [];
+  let feedSort = '';
+  let feedLoading = false;
+  let feedExhausted = false;
+
+  function initFeed() {
+    feedAllProducts = MedData.getProducts({ sort: feedSort });
+    feedPage = 0;
+    feedExhausted = false;
+    document.getElementById('feed-grid').innerHTML = '';
+    document.getElementById('feed-end').style.display = 'none';
+    document.getElementById('feed-count-label').textContent = `${feedAllProducts.length} товаров`;
+    loadNextPage();
+  }
+
+  function loadNextPage() {
+    if (feedLoading || feedExhausted) return;
+    feedLoading = true;
+    document.getElementById('feed-loading').style.display = 'block';
+
+    // Simulate slight async so scroll feels natural
+    setTimeout(() => {
+      const start = feedPage * FEED_PAGE_SIZE;
+      const slice = feedAllProducts.slice(start, start + FEED_PAGE_SIZE);
+      const grid = document.getElementById('feed-grid');
+
+      slice.forEach(p => {
+        const div = document.createElement('div');
+        div.innerHTML = renderProductCard(p);
+        grid.appendChild(div.firstElementChild);
+      });
+
+      feedPage++;
+      feedLoading = false;
+      document.getElementById('feed-loading').style.display = 'none';
+
+      if (start + FEED_PAGE_SIZE >= feedAllProducts.length) {
+        feedExhausted = true;
+        document.getElementById('feed-end').style.display = 'block';
+      }
+    }, 200);
+  }
+
+  // IntersectionObserver watches the sentinel
+  const feedObserver = new IntersectionObserver((entries) => {
+    if (entries[0].isIntersecting && !feedLoading && !feedExhausted) {
+      loadNextPage();
+    }
+  }, { threshold: 0.1 });
+  feedObserver.observe(document.getElementById('feed-sentinel'));
+
+  // Sort control
+  document.getElementById('feed-sort').addEventListener('change', e => {
+    feedSort = e.target.value;
+    feedAllProducts = MedData.getProducts({ sort: feedSort });
+    feedPage = 0;
+    feedExhausted = false;
+    document.getElementById('feed-grid').innerHTML = '';
+    document.getElementById('feed-end').style.display = 'none';
+    loadNextPage();
+  });
+
+  initFeed();
+  // ── END INFINITE SCROLL ────────────────────────────────────────
+
   // Re-render on lang change
   document.addEventListener('langChange', () => {
     sidebarEl.innerHTML = cats.map(cat => `
@@ -510,6 +605,13 @@ window.applySpecialty = function(key) {
     renderRow(MedData.getProducts({ category: 'surgical-instruments' }).slice(0, 8), 'surgical-row');
     renderRow(MedData.getProducts({ category: 'diagnostics' }).slice(0, 8), 'diagnostics-row');
     renderRow(MedData.getProducts({ category: 'anesthesia' }).slice(0, 8), 'anesthesia-row');
+    // Re-init feed with new language product names
+    feedAllProducts = MedData.getProducts({ sort: feedSort });
+    feedPage = 0;
+    feedExhausted = false;
+    document.getElementById('feed-grid').innerHTML = '';
+    document.getElementById('feed-end').style.display = 'none';
+    loadNextPage();
   });
 })();
 </script>

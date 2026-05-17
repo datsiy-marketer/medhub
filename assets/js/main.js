@@ -23,23 +23,33 @@ window.showToast = showToast;
 function renderProductCard(product) {
   const name = window.I18n?.t(product.nameKey) || product.nameKey;
   const badges = [];
-  if (product.isNew) badges.push(`<span class="badge badge-new" data-i18n="label_new">${I18n.t('label_new')}</span>`);
-  if (product.isSale) badges.push(`<span class="badge badge-sale" data-i18n="label_sale">${I18n.t('label_sale')}</span>`);
+  if (product.isNew) badges.push(`<span class="badge badge-new">${I18n.t('label_new')}</span>`);
+  if (product.isSale) badges.push(`<span class="badge badge-sale">${I18n.t('label_sale')}</span>`);
+
+  const priceStr = window.formatPrice ? formatPrice(product.price) : null;
+  const unit = product.unit ? `<span class="product-card__unit">/ ${product.unit}</span>` : '';
+
+  const priceBlock = priceStr
+    ? `<div class="product-card__price">${priceStr}${unit}</div>`
+    : `<div class="product-card__price product-card__price--request">По запросу</div>`;
+
+  const productJson = JSON.stringify({ id: product.id, slug: product.slug, nameKey: product.nameKey, brand: product.brand, sku: product.sku, image: product.image }).replace(/"/g, '&quot;');
 
   return `
     <article class="product-card" onclick="location.href='${getBase()}/product.html?slug=${product.slug}'" role="link" tabindex="0">
       <div class="product-card__image">
-        <img src="${product.image}" alt="${name}" loading="lazy" onerror="this.src='https://placehold.co/600x400/f8fafc/64748b?text=${encodeURIComponent(product.brand)}'">
+        <img src="${product.image}" alt="${name}" loading="lazy" onerror="this.src='https://placehold.co/600x400/eef2f7/1a3a5c?text=${encodeURIComponent(product.brand)}'">
         ${badges.length ? `<div class="product-card__badges">${badges.join('')}</div>` : ''}
       </div>
       <div class="product-card__body">
         <div class="product-card__brand">${product.brand}</div>
         <div class="product-card__name">${name}</div>
         <div class="product-card__sku">SKU: ${product.sku}</div>
+        ${priceBlock}
       </div>
       <div class="product-card__footer">
-        <button class="btn btn-outline btn-sm" onclick="event.stopPropagation(); Cart.add(${JSON.stringify(product).replace(/"/g, '&quot;')}); showToast(I18n.t('btn_add_cart'))" data-i18n="btn_add_cart">${I18n.t('btn_add_cart')}</button>
-        <button class="btn btn-primary btn-sm" onclick="event.stopPropagation(); location.href='${getBase()}/cart.html?inquiry=${product.id}'" data-i18n="btn_request_product">${I18n.t('btn_request_product')}</button>
+        <button class="btn btn-green btn-sm" onclick="event.stopPropagation(); Cart.add(${productJson}); showToast(I18n.t('btn_add_cart'))">${I18n.t('btn_add_cart')}</button>
+        <button class="btn btn-outline btn-sm" onclick="event.stopPropagation(); openInquiryModal(${productJson})">${priceStr ? I18n.t('btn_inquiry').slice(0,8) : I18n.t('btn_request_product')}</button>
       </div>
     </article>`;
 }

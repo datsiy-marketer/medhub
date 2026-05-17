@@ -5,33 +5,20 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>MedHub — B2B маркетплейс медицинского оборудования</title>
   <meta name="description" content="MedHub — профессиональная B2B площадка для закупки медицинского оборудования. Хирургические инструменты, аппараты ИВЛ, диагностика от ведущих мировых брендов: Aesculap, Karl Storz, Philips, Dräger, Stryker.">
-  <meta name="keywords" content="медицинское оборудование, хирургические инструменты, Aesculap, Karl Storz, Philips, Dräger, Stryker, B2B, оптовые поставки, медтехника">
+  <meta name="keywords" content="медицинское оборудование, хирургические инструменты, B2B, медтехника, Aesculap, Karl Storz, Philips, Dräger, Stryker">
   <meta property="og:title" content="MedHub — B2B маркетплейс медицинского оборудования">
-  <meta property="og:description" content="Профессиональные поставки медицинского оборудования для клиник и больниц. Официальные дистрибьюторы ведущих мировых брендов.">
+  <meta property="og:description" content="Профессиональные поставки медицинского оборудования для клиник и больниц.">
   <meta property="og:type" content="website">
   <link rel="canonical" href="https://medhub.ru/">
   <link rel="stylesheet" href="assets/css/main.css">
   <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@type": "Organization",
-    "name": "MedHub",
-    "description": "B2B маркетплейс медицинского оборудования",
-    "url": "https://medhub.ru",
-    "telephone": "+74951234567",
-    "address": {
-      "@type": "PostalAddress",
-      "streetAddress": "ул. Профсоюзная, 57, офис 401",
-      "addressLocality": "Москва",
-      "addressCountry": "RU"
-    }
-  }
+  {"@context":"https://schema.org","@type":"Organization","name":"MedHub","url":"https://medhub.ru","telephone":"+74951234567","address":{"@type":"PostalAddress","streetAddress":"ул. Профсоюзная, 57","addressLocality":"Москва","addressCountry":"RU"}}
   </script>
 </head>
 <body>
 
 <!-- Promo banner -->
-<div class="promo-banner" id="promo-banner" style="display:none;" data-i18n-key="promo_text"></div>
+<div class="promo-banner" id="promo-banner" style="display:none;"></div>
 
 <!-- HEADER -->
 <header class="header">
@@ -41,151 +28,201 @@
       MedHub
     </a>
     <div class="header__search">
-      <svg class="header__search-icon" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg>
-      <input class="header__search-input" type="search" data-i18n-placeholder="search_placeholder" placeholder="Поиск оборудования, бренда, артикула..." aria-label="Search">
+      <svg class="header__search-icon" width="15" height="15" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg>
+      <input class="header__search-input" type="search" id="main-search" data-i18n-placeholder="search_placeholder" placeholder="Поиск оборудования, бренда, артикула..." aria-label="Поиск">
     </div>
     <div class="header__actions">
       <div class="header__lang-switcher" role="group" aria-label="Language">
-        <button class="lang-btn active" data-lang="ru" aria-label="Русский">RU</button>
-        <button class="lang-btn" data-lang="en" aria-label="English">EN</button>
-        <button class="lang-btn" data-lang="zh" aria-label="中文">ZH</button>
+        <button class="lang-btn active" data-lang="ru">RU</button>
+        <button class="lang-btn" data-lang="en">EN</button>
+        <button class="lang-btn" data-lang="zh">ZH</button>
       </div>
-      <button class="header__cart-btn" aria-label="Cart" onclick="location.href='cart.html'">
-        <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M6 2 3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"/><line x1="3" x2="21" y1="6" y2="6"/><path d="M16 10a4 4 0 0 1-8 0"/></svg>
+      <button class="header__cart-btn" onclick="location.href='cart.html'" aria-label="Корзина">
+        <svg width="15" height="15" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M6 2 3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"/><line x1="3" x2="21" y1="6" y2="6"/><path d="M16 10a4 4 0 0 1-8 0"/></svg>
         <span class="cart-count-label">0</span>
         <span class="cart-badge hidden" aria-live="polite">0</span>
       </button>
-      <button class="header__inquiry-btn" data-i18n="btn_inquiry" onclick="location.href='cart.html'">Оставить заявку</button>
+      <button class="header__inquiry-btn" onclick="location.href='cart.html'" data-i18n="btn_inquiry">Оставить заявку</button>
     </div>
   </div>
 </header>
 
-<!-- HERO -->
-<section class="hero" aria-labelledby="hero-title">
-  <div class="hero__inner">
-    <div class="hero__tag">🏥 B2B Medical Marketplace</div>
-    <h1 class="hero__title" id="hero-title" data-i18n="hero_title">
-      Медицинское оборудование для <span>профессионалов</span>
-    </h1>
-    <p class="hero__subtitle" data-i18n="hero_subtitle">
-      Хирургические инструменты, диагностика, ИВЛ — только ведущие мировые бренды. Быстрая поставка, сертификация, техподдержка.
-    </p>
-    <div class="hero__actions">
-      <a href="catalog.html" class="btn btn-primary btn-lg" data-i18n="hero_btn_catalog">Смотреть каталог</a>
-      <a href="cart.html" class="btn btn-lg" style="background:rgba(255,255,255,0.1);color:#fff;border:1.5px solid rgba(255,255,255,0.25);" data-i18n="hero_btn_inquiry">Оставить заявку</a>
-    </div>
-    <div class="hero__stats">
-      <div>
-        <div class="hero__stat-value">2 000+</div>
-        <div class="hero__stat-label">Позиций в каталоге</div>
-      </div>
-      <div>
-        <div class="hero__stat-value">50+</div>
-        <div class="hero__stat-label">Мировых брендов</div>
-      </div>
-      <div>
-        <div class="hero__stat-value">1 500+</div>
-        <div class="hero__stat-label">Клиентов по России</div>
-      </div>
-      <div>
-        <div class="hero__stat-value">10 лет</div>
-        <div class="hero__stat-label">На рынке медтехники</div>
-      </div>
-    </div>
-  </div>
-</section>
+<!-- 3-COLUMN LAYOUT -->
+<div class="home-layout">
 
-<!-- CATEGORIES -->
-<section class="section">
-  <div class="container">
-    <div class="section__header">
-      <div>
-        <h2 class="section__title" data-i18n="section_categories">Категории оборудования</h2>
-      </div>
-      <a href="catalog.html" class="section__link" data-i18n="filter_all">Все →</a>
-    </div>
-    <div class="category-grid" id="category-grid">
-      <!-- rendered by JS -->
-    </div>
-  </div>
-</section>
+  <!-- =====================
+       LEFT SIDEBAR
+       ===================== -->
+  <aside class="home-sidebar" aria-label="Категории">
+    <div class="home-sidebar__heading" data-i18n="nav_catalog">Каталог</div>
+    <div id="home-sidebar-cats"><!-- JS --></div>
+  </aside>
 
-<!-- FEATURED PRODUCTS -->
-<section class="section section--gray">
-  <div class="container">
-    <div class="section__header">
-      <div>
-        <h2 class="section__title" data-i18n="section_featured">Рекомендуемые товары</h2>
-      </div>
-      <a href="catalog.html" class="section__link">Все товары →</a>
-    </div>
-    <div class="product-grid" id="featured-grid">
-      <!-- rendered by JS -->
-    </div>
-  </div>
-</section>
+  <!-- =====================
+       CENTER COLUMN
+       ===================== -->
+  <main class="home-center" id="home-center">
 
-<!-- BRANDS -->
-<section class="section">
-  <div class="container">
-    <div class="section__header">
-      <h2 class="section__title" data-i18n="section_brands">Наши бренды</h2>
+    <!-- COMPACT BANNER -->
+    <div class="home-banner" role="banner">
+      <div class="home-banner__content">
+        <div class="home-banner__tag">🏥 B2B Medical Marketplace</div>
+        <h1 class="home-banner__title" data-i18n="hero_title">
+          Медицинское оборудование для профессионалов
+        </h1>
+        <div class="home-banner__actions">
+          <a href="catalog.html" class="btn btn-primary" data-i18n="hero_btn_catalog">Смотреть каталог</a>
+          <a href="cart.html" class="btn btn-outline" data-i18n="hero_btn_inquiry">Оставить заявку</a>
+        </div>
+      </div>
+      <div class="home-banner__stats">
+        <div class="home-banner__stat-item">
+          <div class="home-banner__stat-value">2 000+</div>
+          <div class="home-banner__stat-label">позиций</div>
+        </div>
+        <div class="home-banner__stat-item">
+          <div class="home-banner__stat-value">50+</div>
+          <div class="home-banner__stat-label">брендов</div>
+        </div>
+        <div class="home-banner__stat-item">
+          <div class="home-banner__stat-value">10 лет</div>
+          <div class="home-banner__stat-label">на рынке</div>
+        </div>
+      </div>
     </div>
-    <div class="brands-grid" id="brands-grid">
-      <!-- rendered by JS -->
-    </div>
-  </div>
-</section>
 
-<!-- WHY US -->
-<section class="section section--gray">
-  <div class="container">
-    <div class="section__header">
-      <h2 class="section__title" data-i18n="section_why">Почему MedHub</h2>
+    <!-- SPECIALTY CHIPS -->
+    <div class="section-block">
+      <div class="section-block__header">
+        <div>
+          <div class="section-block__title">Подборки по специальности</div>
+          <div class="section-block__sub">Найдите оборудование для вашего профиля</div>
+        </div>
+      </div>
+      <div class="specialty-chips" id="specialty-chips">
+        <button class="specialty-chip" onclick="applySpecialty('surgical-instruments')" data-specialty="surgical-instruments">
+          <span class="specialty-chip__icon">✂️</span> Хирургия
+        </button>
+        <button class="specialty-chip" onclick="applySpecialty('stomatology')">
+          <span class="specialty-chip__icon">🦷</span> Стоматология
+        </button>
+        <button class="specialty-chip" onclick="applySpecialty('orthopedics')" data-specialty="orthopedics">
+          <span class="specialty-chip__icon">🦴</span> Травматология
+        </button>
+        <button class="specialty-chip" onclick="applySpecialty('endoscopy')" data-specialty="endoscopy">
+          <span class="specialty-chip__icon">🔬</span> Эндоскопия
+        </button>
+        <button class="specialty-chip" onclick="applySpecialty('anesthesia')" data-specialty="anesthesia">
+          <span class="specialty-chip__icon">💨</span> Анестезиология
+        </button>
+        <button class="specialty-chip" onclick="applySpecialty('monitoring')" data-specialty="monitoring">
+          <span class="specialty-chip__icon">💓</span> Реанимация
+        </button>
+        <button class="specialty-chip" onclick="applySpecialty('diagnostics')" data-specialty="diagnostics">
+          <span class="specialty-chip__icon">🩻</span> Диагностика
+        </button>
+        <button class="specialty-chip" onclick="applySpecialty('ophthalmology')">
+          <span class="specialty-chip__icon">👁</span> Офтальмология
+        </button>
+        <button class="specialty-chip" onclick="applySpecialty('laboratory')" data-specialty="laboratory">
+          <span class="specialty-chip__icon">🧪</span> Лаборатория
+        </button>
+        <button class="specialty-chip" onclick="applySpecialty('consumables')" data-specialty="consumables">
+          <span class="specialty-chip__icon">📦</span> Расходные материалы
+        </button>
+        <button class="specialty-chip" onclick="applySpecialty('sterilization')" data-specialty="sterilization">
+          <span class="specialty-chip__icon">♻️</span> Стерилизация
+        </button>
+        <button class="specialty-chip" onclick="applySpecialty('cardiology')">
+          <span class="specialty-chip__icon">❤️</span> Кардиология
+        </button>
+      </div>
     </div>
-    <div class="why-grid">
-      <div class="why-card">
-        <div class="why-card__icon">🏆</div>
-        <div class="why-card__title" data-i18n="why_1_title">Официальные поставки</div>
-        <div class="why-card__text" data-i18n="why_1_text">Прямые контракты с производителями. Оригинальная продукция с гарантией и сертификатами.</div>
-      </div>
-      <div class="why-card">
-        <div class="why-card__icon">🚚</div>
-        <div class="why-card__title" data-i18n="why_2_title">Быстрая поставка</div>
-        <div class="why-card__text" data-i18n="why_2_text">Склад в Москве. Доставка по всей России от 1 рабочего дня.</div>
-      </div>
-      <div class="why-card">
-        <div class="why-card__icon">🔧</div>
-        <div class="why-card__title" data-i18n="why_3_title">Техническая поддержка</div>
-        <div class="why-card__text" data-i18n="why_3_text">Инженеры с опытом 10+ лет. Обслуживание и ремонт оборудования.</div>
-      </div>
-      <div class="why-card">
-        <div class="why-card__icon">📋</div>
-        <div class="why-card__title" data-i18n="why_4_title">Гибкие условия</div>
-        <div class="why-card__text" data-i18n="why_4_text">Рассрочка, лизинг, работа по 44-ФЗ. Индивидуальные условия для крупных клиентов.</div>
-      </div>
-    </div>
-  </div>
-</section>
 
-<!-- QUICK INQUIRY SECTION -->
-<section class="section">
-  <div class="container">
-    <div style="max-width:640px;margin:0 auto;text-align:center;">
-      <h2 class="section__title" style="margin-bottom:12px;" data-i18n="inquiry_title">Оставить заявку</h2>
-      <p style="color:var(--color-text-muted);margin-bottom:32px;" data-i18n="inquiry_subtitle">Заполните форму, и мы свяжемся с вами в течение 2 часов.</p>
-      <form id="main-inquiry-form" style="text-align:left;">
-        <div style="display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-bottom:14px;">
+    <!-- FEATURED (horizontal scroll) -->
+    <div class="section-block" id="section-featured">
+      <div class="section-block__header">
+        <div class="section-block__title" data-i18n="section_featured">Рекомендуемые</div>
+        <a href="catalog.html?filter=featured" class="section-block__link">Все →</a>
+      </div>
+      <div class="horiz-scroll">
+        <div class="horiz-scroll__track" id="featured-row"><!-- JS --></div>
+      </div>
+    </div>
+
+    <!-- NEW ITEMS (horizontal scroll) -->
+    <div class="section-block" id="section-new">
+      <div class="section-block__header">
+        <div class="section-block__title" data-i18n="filter_new">Новинки</div>
+        <a href="catalog.html?filter=isNew" class="section-block__link">Все →</a>
+      </div>
+      <div class="horiz-scroll">
+        <div class="horiz-scroll__track" id="new-row"><!-- JS --></div>
+      </div>
+    </div>
+
+    <!-- SALE ITEMS (horizontal scroll) -->
+    <div class="section-block" id="section-sale">
+      <div class="section-block__header">
+        <div class="section-block__title" data-i18n="filter_sale">Акции</div>
+        <a href="catalog.html?filter=isSale" class="section-block__link">Все →</a>
+      </div>
+      <div class="horiz-scroll">
+        <div class="horiz-scroll__track" id="sale-row"><!-- JS --></div>
+      </div>
+    </div>
+
+    <!-- SURGICAL INSTRUMENTS (horizontal scroll) -->
+    <div class="section-block" id="section-surgical">
+      <div class="section-block__header">
+        <div class="section-block__title" data-i18n="cat_surgical">Хирургические инструменты</div>
+        <a href="catalog.html?category=surgical-instruments" class="section-block__link">Все →</a>
+      </div>
+      <div class="horiz-scroll">
+        <div class="horiz-scroll__track" id="surgical-row"><!-- JS --></div>
+      </div>
+    </div>
+
+    <!-- DIAGNOSTICS (horizontal scroll) -->
+    <div class="section-block" id="section-diagnostics">
+      <div class="section-block__header">
+        <div class="section-block__title" data-i18n="cat_diagnostics">Диагностика и визуализация</div>
+        <a href="catalog.html?category=diagnostics" class="section-block__link">Все →</a>
+      </div>
+      <div class="horiz-scroll">
+        <div class="horiz-scroll__track" id="diagnostics-row"><!-- JS --></div>
+      </div>
+    </div>
+
+    <!-- ANESTHESIA (horizontal scroll) -->
+    <div class="section-block" id="section-anesthesia">
+      <div class="section-block__header">
+        <div class="section-block__title" data-i18n="cat_anesthesia">Анестезия и ИВЛ</div>
+        <a href="catalog.html?category=anesthesia" class="section-block__link">Все →</a>
+      </div>
+      <div class="horiz-scroll">
+        <div class="horiz-scroll__track" id="anesthesia-row"><!-- JS --></div>
+      </div>
+    </div>
+
+    <!-- INQUIRY FORM BLOCK -->
+    <div class="section-block">
+      <div class="section-block__header">
+        <div>
+          <div class="section-block__title" data-i18n="inquiry_title">Оставить заявку</div>
+          <div class="section-block__sub" data-i18n="inquiry_subtitle">Заполните форму — ответим в течение 2 часов</div>
+        </div>
+      </div>
+      <form id="main-inquiry-form">
+        <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-bottom:12px;">
           <div class="form-group" style="margin:0">
-            <label class="form-label" data-i18n="form_company">Название организации <span>*</span></label>
+            <label class="form-label" data-i18n="form_company">Организация <span>*</span></label>
             <input class="form-input" name="company" required data-i18n-placeholder="form_company_placeholder" placeholder="ООО Городская больница №1">
           </div>
           <div class="form-group" style="margin:0">
-            <label class="form-label" data-i18n="form_contact_name">Контактное лицо <span>*</span></label>
-            <input class="form-input" name="contact" required data-i18n-placeholder="form_contact_placeholder" placeholder="Иван Иванов">
+            <label class="form-label" data-i18n="form_contact_name">Контакт <span>*</span></label>
+            <input class="form-input" name="contact" required placeholder="Иван Иванов">
           </div>
-        </div>
-        <div style="display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-bottom:14px;">
           <div class="form-group" style="margin:0">
             <label class="form-label" data-i18n="form_phone">Телефон <span>*</span></label>
             <input class="form-input" name="phone" type="tel" required placeholder="+7 (495) 123-45-67">
@@ -195,38 +232,130 @@
             <input class="form-input" name="email" type="email" placeholder="info@clinic.ru">
           </div>
         </div>
-        <div class="form-group" style="margin-bottom:20px;">
+        <div class="form-group">
           <label class="form-label" data-i18n="form_message">Комментарий</label>
-          <textarea class="form-textarea" name="message" rows="3" data-i18n-placeholder="form_message_placeholder" placeholder="Укажите нужное количество, сроки поставки или другие пожелания..."></textarea>
+          <textarea class="form-textarea" name="message" rows="2" placeholder="Укажите нужное оборудование, количество, сроки..."></textarea>
         </div>
-        <div style="text-align:center;">
-          <button type="submit" class="btn btn-primary btn-lg" data-i18n="btn_submit">Отправить</button>
+        <div style="display:flex;align-items:center;gap:12px;flex-wrap:wrap;">
+          <button type="submit" class="btn btn-primary" data-i18n="btn_submit">Отправить</button>
+          <div id="main-form-result"></div>
         </div>
-        <div id="main-form-result" style="margin-top:16px;"></div>
       </form>
     </div>
-  </div>
-</section>
+
+  </main><!-- /home-center -->
+
+  <!-- =====================
+       RIGHT PANEL
+       ===================== -->
+  <aside class="home-right" aria-label="Контакты и информация">
+
+    <!-- Contact card -->
+    <div class="right-card">
+      <div class="right-card__title">Связаться с нами</div>
+      <div class="right-card__sub">Работаем с клиниками, больницами и медцентрами по всей России</div>
+      <div class="right-contact-item">
+        <svg width="13" height="13" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 13.5a19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 3.6 2.7h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l.85-.85a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+        <a href="tel:+74951234567">+7 (495) 123-45-67</a>
+      </div>
+      <div class="right-contact-item">
+        <svg width="13" height="13" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+        <a href="mailto:info@medhub.ru">info@medhub.ru</a>
+      </div>
+      <div class="right-contact-item">
+        <svg width="13" height="13" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><polyline points="12,6 12,12 16,14"/></svg>
+        <span>Пн–Пт: 9:00–18:00</span>
+      </div>
+      <div class="right-contact-item" style="margin-bottom:16px;">
+        <svg width="13" height="13" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0z"/><circle cx="12" cy="10" r="3"/></svg>
+        <span style="font-size:11px;">г. Москва, ул. Профсоюзная, 57</span>
+      </div>
+      <button class="btn btn-primary" style="width:100%;" onclick="location.href='cart.html'" data-i18n="btn_inquiry">Оставить заявку</button>
+    </div>
+
+    <!-- Stats -->
+    <div class="right-card">
+      <div class="right-card__title">MedHub в цифрах</div>
+      <div class="right-stat-grid">
+        <div class="right-stat-item">
+          <div class="right-stat-value">2000+</div>
+          <div class="right-stat-label">Позиций в каталоге</div>
+        </div>
+        <div class="right-stat-item">
+          <div class="right-stat-value">50+</div>
+          <div class="right-stat-label">Мировых брендов</div>
+        </div>
+        <div class="right-stat-item">
+          <div class="right-stat-value">1500+</div>
+          <div class="right-stat-label">Клиентов</div>
+        </div>
+        <div class="right-stat-item">
+          <div class="right-stat-value">10 л.</div>
+          <div class="right-stat-label">На рынке</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Why us -->
+    <div class="right-card">
+      <div class="right-card__title" data-i18n="section_why">Почему MedHub</div>
+      <div class="right-why-item">
+        <div class="right-why-icon">🏆</div>
+        <div>
+          <div class="right-why-title" data-i18n="why_1_title">Официальные поставки</div>
+          <div class="right-why-text" data-i18n="why_1_text">Прямые контракты с производителями. Оригинальная продукция.</div>
+        </div>
+      </div>
+      <div class="right-why-item">
+        <div class="right-why-icon">🚚</div>
+        <div>
+          <div class="right-why-title" data-i18n="why_2_title">Быстрая поставка</div>
+          <div class="right-why-text" data-i18n="why_2_text">Склад в Москве. Доставка от 1 рабочего дня.</div>
+        </div>
+      </div>
+      <div class="right-why-item">
+        <div class="right-why-icon">🔧</div>
+        <div>
+          <div class="right-why-title" data-i18n="why_3_title">Техподдержка</div>
+          <div class="right-why-text" data-i18n="why_3_text">Инженеры с опытом 10+ лет. Сервис и ремонт.</div>
+        </div>
+      </div>
+      <div class="right-why-item">
+        <div class="right-why-icon">📋</div>
+        <div>
+          <div class="right-why-title" data-i18n="why_4_title">Гибкие условия</div>
+          <div class="right-why-text" data-i18n="why_4_text">Лизинг, рассрочка, 44-ФЗ.</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Brands promo -->
+    <div class="right-card">
+      <div class="right-card__title" data-i18n="section_brands">Бренды</div>
+      <div id="right-brands" style="display:flex;flex-wrap:wrap;gap:6px;"></div>
+    </div>
+
+  </aside><!-- /home-right -->
+
+</div><!-- /home-layout -->
 
 <!-- FOOTER -->
 <footer class="footer">
   <div class="container">
     <div class="footer__inner">
       <div>
-        <div class="footer__brand">
-          <span>⚕</span> MedHub
-        </div>
+        <div class="footer__brand"><span>⚕</span> MedHub</div>
         <div class="footer__brand-desc">B2B маркетплейс медицинского оборудования. Официальные поставки от ведущих мировых производителей.</div>
         <div class="footer__contact">
-          <svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0z"/><circle cx="12" cy="10" r="3"/></svg>
+          <svg width="13" height="13" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0z"/><circle cx="12" cy="10" r="3"/></svg>
           <span data-i18n="footer_address">г. Москва, ул. Профсоюзная, 57, офис 401</span>
         </div>
         <div class="footer__contact">
-          <svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 13.5a19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 3.6 2.7h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l.85-.85a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+          <svg width="13" height="13" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 13.5a19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 3.6 2.7h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l.85-.85a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
           <a href="tel:+74951234567" data-i18n="footer_phone">+7 (495) 123-45-67</a>
         </div>
         <div class="footer__contact">
-          <svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+          <svg width="13" height="13" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
           <a href="mailto:info@medhub.ru" data-i18n="footer_email">info@medhub.ru</a>
         </div>
       </div>
@@ -237,7 +366,7 @@
         <a href="catalog.html?category=anesthesia" class="footer__link" data-i18n="cat_anesthesia">Анестезия и ИВЛ</a>
         <a href="catalog.html?category=diagnostics" class="footer__link" data-i18n="cat_diagnostics">Диагностика</a>
         <a href="catalog.html?category=monitoring" class="footer__link" data-i18n="cat_monitoring">Мониторинг</a>
-        <a href="catalog.html" class="footer__link" style="color:var(--color-primary);margin-top:6px;">Все категории →</a>
+        <a href="catalog.html" class="footer__link" style="color:var(--color-green);margin-top:4px;">Все категории →</a>
       </div>
       <div>
         <div class="footer__col-title" data-i18n="nav_about">О компании</div>
@@ -268,30 +397,74 @@
 <script src="assets/js/data.js"></script>
 <script src="assets/js/main.js"></script>
 <script>
+// Specialty → category mapping
+const SPECIALTY_MAP = {
+  'surgical-instruments': { category: 'surgical-instruments' },
+  'stomatology': { category: 'surgical-instruments' }, // closest match
+  'orthopedics': { category: 'orthopedics' },
+  'endoscopy': { category: 'endoscopy' },
+  'anesthesia': { category: 'anesthesia' },
+  'monitoring': { category: 'monitoring' },
+  'diagnostics': { category: 'diagnostics' },
+  'ophthalmology': { category: 'diagnostics' },
+  'laboratory': { category: 'laboratory' },
+  'consumables': { category: 'consumables' },
+  'sterilization': { category: 'sterilization' },
+  'cardiology': { category: 'monitoring' }
+};
+
+window.applySpecialty = function(key) {
+  const map = SPECIALTY_MAP[key];
+  if (!map) return;
+  const params = new URLSearchParams();
+  if (map.category) params.set('category', map.category);
+  location.href = 'catalog.html?' + params.toString();
+};
+
 (async function() {
   await MedData.init();
-
-  // Render categories
   const cats = MedData.getCategories();
-  const catGrid = document.getElementById('category-grid');
-  catGrid.innerHTML = cats.map(cat => `
-    <div class="category-card" onclick="location.href='catalog.html?category=${cat.slug}'" role="link" tabindex="0">
-      <div class="category-card__icon">${cat.icon}</div>
-      <div class="category-card__name" data-i18n="${cat.nameKey}">${I18n.t(cat.nameKey)}</div>
+
+  // Build left sidebar category tree
+  const sidebarEl = document.getElementById('home-sidebar-cats');
+  sidebarEl.innerHTML = cats.map(cat => `
+    <div>
+      <button class="sidebar__cat" onclick="location.href='catalog.html?category=${cat.slug}'">
+        <div class="sidebar__cat-left">
+          <span class="sidebar__cat-icon">${cat.icon}</span>
+          <span>${I18n.t(cat.nameKey)}</span>
+        </div>
+        <span style="font-size:9px;color:var(--color-text-light);">›</span>
+      </button>
     </div>
   `).join('');
 
-  // Render featured products
-  const featured = MedData.getProducts({ isFeatured: true }).slice(0, 8);
-  const grid = document.getElementById('featured-grid');
-  grid.innerHTML = featured.map(p => renderProductCard(p)).join('');
+  // Render row helper
+  function renderRow(products, containerId) {
+    const el = document.getElementById(containerId);
+    if (!el) return;
+    if (products.length === 0) {
+      el.closest('.section-block').style.display = 'none';
+      return;
+    }
+    el.innerHTML = products.map(p => renderProductCard(p)).join('');
+  }
 
-  // Render brands
-  const brands = MedData.getBrands();
-  const brandGrid = document.getElementById('brands-grid');
-  brandGrid.innerHTML = brands.map(b => `<div class="brand-chip">${b}</div>`).join('');
+  // Render all sections
+  renderRow(MedData.getProducts({ isFeatured: true }).slice(0, 10), 'featured-row');
+  renderRow(MedData.getProducts({ isNew: true }).slice(0, 10), 'new-row');
+  renderRow(MedData.getProducts({ isSale: true }).slice(0, 10), 'sale-row');
+  renderRow(MedData.getProducts({ category: 'surgical-instruments' }).slice(0, 8), 'surgical-row');
+  renderRow(MedData.getProducts({ category: 'diagnostics' }).slice(0, 8), 'diagnostics-row');
+  renderRow(MedData.getProducts({ category: 'anesthesia' }).slice(0, 8), 'anesthesia-row');
 
-  // Promo banner from admin settings
+  // Right panel brands
+  const brands = MedData.getBrands().slice(0, 10);
+  document.getElementById('right-brands').innerHTML = brands.map(b =>
+    `<span style="font-size:11px;font-weight:600;padding:3px 8px;background:var(--color-bg-light);border:1px solid var(--color-border);border-radius:6px;color:var(--color-text-muted);cursor:pointer;" onclick="location.href='catalog.html?brand=${encodeURIComponent(b)}'">${b}</span>`
+  ).join('');
+
+  // Promo banner
   const promoText = localStorage.getItem('medhub_promo');
   if (promoText) {
     const banner = document.getElementById('promo-banner');
@@ -299,15 +472,11 @@
     banner.style.display = 'block';
   }
 
-  // Re-render on lang change
-  document.addEventListener('langChange', () => {
-    catGrid.innerHTML = cats.map(cat => `
-      <div class="category-card" onclick="location.href='catalog.html?category=${cat.slug}'" role="link" tabindex="0">
-        <div class="category-card__icon">${cat.icon}</div>
-        <div class="category-card__name">${I18n.t(cat.nameKey)}</div>
-      </div>
-    `).join('');
-    grid.innerHTML = featured.map(p => renderProductCard(p)).join('');
+  // Search
+  document.getElementById('main-search').addEventListener('keydown', e => {
+    if (e.key === 'Enter' && e.target.value.trim()) {
+      location.href = `catalog.html?search=${encodeURIComponent(e.target.value.trim())}`;
+    }
   });
 
   // Main inquiry form
@@ -316,9 +485,31 @@
     const data = Object.fromEntries(new FormData(e.target));
     saveInquiry(data);
     const result = document.getElementById('main-form-result');
-    result.innerHTML = `<div class="form-success-msg">✓ ${I18n.t('form_success')}</div>`;
+    result.innerHTML = `<span class="form-success-msg" style="padding:8px 12px;">✓ ${I18n.t('form_success')}</span>`;
     e.target.reset();
     setTimeout(() => result.innerHTML = '', 5000);
+  });
+
+  // Re-render on lang change
+  document.addEventListener('langChange', () => {
+    sidebarEl.innerHTML = cats.map(cat => `
+      <div>
+        <button class="sidebar__cat" onclick="location.href='catalog.html?category=${cat.slug}'">
+          <div class="sidebar__cat-left">
+            <span class="sidebar__cat-icon">${cat.icon}</span>
+            <span>${I18n.t(cat.nameKey)}</span>
+          </div>
+          <span style="font-size:9px;color:var(--color-text-light);">›</span>
+        </button>
+      </div>
+    `).join('');
+
+    renderRow(MedData.getProducts({ isFeatured: true }).slice(0, 10), 'featured-row');
+    renderRow(MedData.getProducts({ isNew: true }).slice(0, 10), 'new-row');
+    renderRow(MedData.getProducts({ isSale: true }).slice(0, 10), 'sale-row');
+    renderRow(MedData.getProducts({ category: 'surgical-instruments' }).slice(0, 8), 'surgical-row');
+    renderRow(MedData.getProducts({ category: 'diagnostics' }).slice(0, 8), 'diagnostics-row');
+    renderRow(MedData.getProducts({ category: 'anesthesia' }).slice(0, 8), 'anesthesia-row');
   });
 })();
 </script>

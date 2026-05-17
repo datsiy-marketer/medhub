@@ -7,6 +7,10 @@
   <meta name="description" content="Полный каталог медицинского оборудования: хирургические инструменты, эндоскопы, аппараты ИВЛ, УЗИ, мониторы пациента. Бренды: Aesculap, Karl Storz, Philips, Dräger, Stryker.">
   <link rel="canonical" href="https://medhub.ru/catalog">
   <link rel="stylesheet" href="assets/css/main.css">
+  <style>
+    .catalog-layout { padding: 20px 0 40px; }
+    .sidebar { background:#fff; border:1px solid var(--color-border); border-radius: var(--radius-lg); padding: 12px; box-shadow: var(--shadow-xs); }
+  </style>
 </head>
 <body>
 
@@ -36,6 +40,9 @@
     </div>
   </div>
 </header>
+
+<!-- PAGE BG -->
+<div style="background:var(--color-bg-light);min-height:calc(100vh - var(--header-h));">
 
 <!-- BREADCRUMB -->
 <div class="container" style="padding-top:20px;">
@@ -83,6 +90,7 @@
         <button class="filter-chip active" data-filter="" data-i18n="filter_all">Все</button>
         <button class="filter-chip" data-filter="isNew" data-i18n="filter_new">Новинки</button>
         <button class="filter-chip" data-filter="isSale" data-i18n="filter_sale">Акции</button>
+        <button class="filter-chip" data-filter="isFeatured" data-i18n="label_featured">Рекомендуемые</button>
       </div>
 
       <div class="product-grid" id="product-grid">
@@ -245,6 +253,7 @@
     if (activeSubcategory) filters.subcategory = activeSubcategory;
     if (activeFilter === 'isNew') filters.isNew = true;
     if (activeFilter === 'isSale') filters.isSale = true;
+    if (activeFilter === 'isFeatured') filters.isFeatured = true;
     if (searchQuery) filters.search = searchQuery;
     if (activeSort) filters.sort = activeSort;
 
@@ -301,6 +310,17 @@
     render();
   });
 
+  // Handle filter param from index page
+  const filterParam = params.get('filter');
+  if (filterParam === 'isNew') activeFilter = 'isNew';
+  if (filterParam === 'isSale') activeFilter = 'isSale';
+  if (filterParam === 'featured') activeFilter = 'isFeatured';
+  if (filterParam) {
+    document.querySelectorAll('.filter-chip').forEach(c => {
+      c.classList.toggle('active', c.dataset.filter === activeFilter);
+    });
+  }
+
   // Re-render on lang change
   document.addEventListener('langChange', () => {
     buildSidebar();
@@ -313,5 +333,6 @@
   render();
 })();
 </script>
+</div><!-- /page bg -->
 </body>
 </html>

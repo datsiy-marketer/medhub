@@ -89,8 +89,8 @@
     "sku": "C0022093",
     "nameKey": "prod_aes004_name",
     "descriptionKey": "prod_aes004_desc",
-    "image": "img:suture",
-    "images": ["img:suture"],
+    "image": "https://www.simkodent.ru/upload/iblock/84e/va7mju1983srjaaea17qy5ygto3i2z1r/8c9c62ec85c911dbb2280013d43013ba_7d533ba81b3d11ea932900155d005a04.png",
+    "images": ["https://www.simkodent.ru/upload/iblock/84e/va7mju1983srjaaea17qy5ygto3i2z1r/8c9c62ec85c911dbb2280013d43013ba_7d533ba81b3d11ea932900155d005a04.png"],
     "specs": {
       "Тип": "Синтетический рассасывающийся",
       "Размер": "5/0",
@@ -117,8 +117,8 @@
     "sku": "C0022002",
     "nameKey": "prod_aes005_name",
     "descriptionKey": "prod_aes005_desc",
-    "image": "img:suture",
-    "images": ["img:suture"],
+    "image": "https://www.simkodent.ru/upload/iblock/fc7/4dpth6p2md2ux1608nf2x2uarbc97td9/85b189a4a72111efa37f00155d005a04_85b189b7a72111efa37f00155d005a04.png",
+    "images": ["https://www.simkodent.ru/upload/iblock/fc7/4dpth6p2md2ux1608nf2x2uarbc97td9/85b189a4a72111efa37f00155d005a04_85b189b7a72111efa37f00155d005a04.png"],
     "specs": {
       "Тип": "Синтетический рассасывающийся",
       "Размер": "6/0",

@@ -66,23 +66,20 @@ const MedData = (() => {
   async function init() {
     const base = getBase();
     try {
-      const [pRes, cRes] = await Promise.all([
+      const [pRes, cRes, aescRes] = await Promise.all([
         fetch(`${base}/data/products.json`),
-        fetch(`${base}/data/categories.json`)
+        fetch(`${base}/data/categories.json`),
+        fetch(`${base}/data/aesculap_products.json`)
       ]);
       const baseProducts = await pRes.json();
       _categories = await cRes.json();
+      const aescProducts = aescRes.ok ? await aescRes.json() : [];
 
       let override = {};
       try { override = JSON.parse(localStorage.getItem(PRODUCTS_OVERRIDE_KEY)) || {}; } catch {}
 
-      // Also apply admin translation overrides
-      let ruTrans = {};
-      let enTrans = {};
-      try { ruTrans = JSON.parse(localStorage.getItem('medhub_translations_ru')) || {}; } catch {}
-      try { enTrans = JSON.parse(localStorage.getItem('medhub_translations_en')) || {}; } catch {}
-
-      _products = baseProducts
+      const allBase = [...baseProducts, ...aescProducts];
+      _products = allBase
         .filter(p => !override[p.id]?._hidden)
         .map(p => withResolvedImages({ ...p, ...(override[p.id] || {}) }));
 
@@ -104,15 +101,22 @@ const MedData = (() => {
     if (filters.isFeatured) list = list.filter(p => p.isFeatured);
     if (filters.search) {
       const q = filters.search.toLowerCase();
-      list = list.filter(p =>
-        p.brand.toLowerCase().includes(q) ||
-        p.sku.toLowerCase().includes(q) ||
-        p.slug.toLowerCase().includes(q) ||
-        (window.I18n?.t(p.nameKey) || p.nameKey).toLowerCase().includes(q)
-      );
+      list = list.filter(p => {
+        const name = window.getProductName ? getProductName(p) : (p.name || p.nameKey || '');
+        return p.brand.toLowerCase().includes(q) ||
+          p.sku.toLowerCase().includes(q) ||
+          p.slug.toLowerCase().includes(q) ||
+          name.toLowerCase().includes(q);
+      });
     }
-    if (filters.sort === 'name_asc') list.sort((a, b) => (I18n.t(a.nameKey)||'').localeCompare(I18n.t(b.nameKey)||''));
-    if (filters.sort === 'name_desc') list.sort((a, b) => (I18n.t(b.nameKey)||'').localeCompare(I18n.t(a.nameKey)||''));
+    if (filters.sort === 'name_asc') list.sort((a, b) => {
+      const fn = window.getProductName || (p => p.name || p.nameKey || '');
+      return fn(a).localeCompare(fn(b));
+    });
+    if (filters.sort === 'name_desc') list.sort((a, b) => {
+      const fn = window.getProductName || (p => p.name || p.nameKey || '');
+      return fn(b).localeCompare(fn(a));
+    });
     if (filters.sort === 'brand') list.sort((a, b) => a.brand.localeCompare(b.brand));
     if (filters.sort === 'price_asc') list.sort((a, b) => (a.price || Infinity) - (b.price || Infinity));
     if (filters.sort === 'price_desc') list.sort((a, b) => (b.price || 0) - (a.price || 0));

@@ -125,8 +125,8 @@ window._formatPrice = window.formatPrice || function(p) {
       return;
     }
 
-    const name = I18n.t(product.nameKey);
-    const desc = I18n.t(product.descriptionKey);
+    const name = getProductName(product);
+    const desc = getProductDesc(product);
     const cat = MedData.getCategoryById(product.category);
     const catName = cat ? I18n.t(cat.nameKey) : product.category;
 

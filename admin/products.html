@@ -171,6 +171,7 @@
 
 <script src="../assets/js/i18n.js"></script>
 <script src="../assets/js/data.js"></script>
+<script src="../assets/js/main.js"></script>
 <script>
   if (sessionStorage.getItem('medhub_admin') !== 'true') location.href = 'login.html';
 
@@ -207,7 +208,7 @@
     if (search) filtered = filtered.filter(p =>
       p.brand.toLowerCase().includes(search) ||
       p.sku.toLowerCase().includes(search) ||
-      (I18n.t(p.nameKey) || '').toLowerCase().includes(search)
+      (window.getProductName ? getProductName(p) : (I18n.t(p.nameKey) || p.nameKey || '')).toLowerCase().includes(search)
     );
     if (catFilter) filtered = filtered.filter(p => p.category === catFilter);
 
@@ -220,7 +221,7 @@
     }
 
     tbody.innerHTML = filtered.map(p => {
-      const name = I18n.t(p.nameKey) || p.nameKey;
+      const name = window.getProductName ? getProductName(p) : (p.name || I18n.t(p.nameKey) || p.nameKey);
       const cat = allCategories.find(c => c.id === p.category);
       const catName = cat ? I18n.t(cat.nameKey) : p.category;
       const badges = [];

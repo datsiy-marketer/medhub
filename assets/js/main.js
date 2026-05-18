@@ -19,9 +19,40 @@ function showToast(msg, type = 'success') {
 }
 window.showToast = showToast;
 
+// Resolve product name — supports translation keys AND direct name_ru/name_en/name_zh fields
+function getProductName(product) {
+  const lang = window.I18n?.currentLang() || 'ru';
+  // Language-specific direct field (e.g. name_en, name_zh)
+  if (lang !== 'ru') {
+    const direct = product[`name_${lang}`];
+    if (direct) return direct;
+  }
+  // Russian direct field or fallback
+  if (product.name) return product.name;
+  // Translation key system
+  if (!product.nameKey) return 'Товар';
+  const translated = window.I18n?.t(product.nameKey);
+  return (!translated || translated === product.nameKey) ? (product.name || product.nameKey) : translated;
+}
+window.getProductName = getProductName;
+
+// Resolve product description — same multilingual logic
+function getProductDesc(product) {
+  const lang = window.I18n?.currentLang() || 'ru';
+  if (lang !== 'ru') {
+    const direct = product[`description_${lang}`];
+    if (direct) return direct;
+  }
+  if (product.description) return product.description;
+  if (!product.descriptionKey) return '';
+  const translated = window.I18n?.t(product.descriptionKey);
+  return (!translated || translated === product.descriptionKey) ? (product.description || '') : translated;
+}
+window.getProductDesc = getProductDesc;
+
 // Render product card HTML
 function renderProductCard(product) {
-  const name = window.I18n?.t(product.nameKey) || product.nameKey;
+  const name = getProductName(product);
   const badges = [];
   if (product.isNew) badges.push(`<span class="badge badge-new">${I18n.t('label_new')}</span>`);
   if (product.isSale) badges.push(`<span class="badge badge-sale">${I18n.t('label_sale')}</span>`);
